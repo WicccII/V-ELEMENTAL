@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "V-ELEMETAL.sln"
+    "dotnet.defaultSolution": "V-ELEMENTAL.sln"
 }
