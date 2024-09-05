@@ -14,7 +14,7 @@ public class GalicController : WeaponController
     protected override void Attack()
     {
         base.Attack();
-        GameObject spawnedGalic = Instantiate(weaponData.prefab);
+        GameObject spawnedGalic = Instantiate(weaponData.Prefab);
         spawnedGalic.transform.position = transform.position;//spawn direct player póition
         spawnedGalic.transform.parent  = transform;//follow player
     }

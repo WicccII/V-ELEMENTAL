@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //base waepon behaviour in prefab
@@ -8,6 +9,19 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
     protected Vector3 direction;
     public WeaponScriptableObject weaponData;
     public float destroyTime;
+
+    //current stats
+    float currentCooldown;
+    float currentDamage;
+    float currentSpeed;
+    float currentPierce;
+    void Awake()
+    {
+        currentCooldown = weaponData.CooldownDuration;
+        currentDamage = weaponData.Damage;
+        currentSpeed = weaponData.Speed;
+        currentPierce = weaponData.Pierce;
+    }
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -61,5 +75,25 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 
         transform.localScale = scale;
         transform.rotation = Quaternion.Euler(rotation);
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collision) 
+    {
+        //if collision with enemy then take damage
+        if (collision.CompareTag("Enemy"))
+        {
+            EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
+            enemyStats.TakeDamage(currentDamage);
+            ReducePierce();     
+        }
+    }
+
+    void ReducePierce()
+    {
+        currentPierce --;
+        if (currentPierce <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

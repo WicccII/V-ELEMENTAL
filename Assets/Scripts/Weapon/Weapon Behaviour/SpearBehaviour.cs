@@ -13,6 +13,6 @@ public class SpearBehaviour : ProjectileWeaponBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += direction * weaponData.speed * Time.deltaTime;
+        transform.position += direction * weaponData.Speed * Time.deltaTime;
     }
 }

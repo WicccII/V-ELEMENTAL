@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e729c6819aec04d93a158b098fe7f8, type: 3}
   m_Name: Galic Weapon
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  damage: 0
+  prefab: {fileID: 250484655935574522, guid: d5ec81bc266a23b4cb67a964b743f300, type: 3}
+  Damage: 0
   speed: 0
-  cooldownDuration: 0
+  cooldownDuration: 3
   pierce: 0

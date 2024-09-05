@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class BatMove : MonoBehaviour
 {
     Transform player;
-    public float moveSpeed;
+    public EnemyScriptableObject enemyData;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,6 @@ public class BatMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime); 
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyData.Speed * Time.deltaTime); 
     }
 }
