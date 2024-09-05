@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class SpearBehaviour : ProjectileWeaponBehaviour
 {
-    SpearController spearController;
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-        spearController = FindObjectOfType<SpearController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += direction * spearController.weaponData.speed * Time.deltaTime;
+        transform.position += direction * weaponData.speed * Time.deltaTime;
     }
 }

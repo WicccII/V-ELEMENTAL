@@ -6,6 +6,7 @@ using UnityEngine;
 public class ProjectileWeaponBehaviour : MonoBehaviour
 {
     protected Vector3 direction;
+    public WeaponScriptableObject weaponData;
     public float destroyTime;
     // Start is called before the first frame update
     protected virtual void Start()

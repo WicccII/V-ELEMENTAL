@@ -5,6 +5,7 @@ using UnityEngine;
 //base script of all meele weapon
 public class MeeleWeaponBehaviour : MonoBehaviour
 {
+    public WeaponScriptableObject weaponData;
     public float destroyTime;
     // Start is called before the first frame update
     protected virtual void Start()
