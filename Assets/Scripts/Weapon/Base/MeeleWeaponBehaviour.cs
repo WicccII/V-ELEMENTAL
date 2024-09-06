@@ -7,6 +7,19 @@ public class MeeleWeaponBehaviour : MonoBehaviour
 {
     public WeaponScriptableObject weaponData;
     public float destroyTime;
+    //current stats
+    float currentCooldown;
+    protected float currentDamage;
+    float currentSpeed;
+    float currentPierce;
+
+    void Awake()
+    {
+        currentCooldown = weaponData.CooldownDuration;
+        currentDamage = weaponData.Damage;
+        currentSpeed = weaponData.Speed;
+        currentPierce = weaponData.Pierce;
+    }
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -17,5 +30,15 @@ public class MeeleWeaponBehaviour : MonoBehaviour
     void Update()
     {
         
+    }
+
+     protected virtual void OnTriggerEnter2D(Collider2D collision) 
+    {
+        //if collision with enemy then take damage
+        if (collision.CompareTag("Enemy"))
+        {
+            EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
+            enemyStats.TakeDamage(currentDamage);    
+        }
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Galic Weapon
   m_EditorClassIdentifier: 
   prefab: {fileID: 250484655935574522, guid: d5ec81bc266a23b4cb67a964b743f300, type: 3}
-  Damage: 0
+  damage: 2
   speed: 0
   cooldownDuration: 3
   pierce: 0

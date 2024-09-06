@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour
 {
     public EnemyScriptableObject enemyData;
-    float currentHealth;
+    // [HideInInspector]
+    public float currentHealth;
     float currentSpeed;
     float currentDamage;
     // Start is called before the first frame update
