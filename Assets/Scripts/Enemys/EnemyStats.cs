@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour
 {
     public EnemyScriptableObject enemyData;
-    // [HideInInspector]
+    [HideInInspector]
     public float currentHealth;
     float currentSpeed;
     float currentDamage;
