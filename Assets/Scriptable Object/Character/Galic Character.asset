@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83e729c6819aec04d93a158b098fe7f8, type: 3}
-  m_Name: Galic Weapon
+  m_Script: {fileID: 11500000, guid: 6ca03f45358cc04479c154aa1cdb07cd, type: 3}
+  m_Name: Galic Character
   m_EditorClassIdentifier: 
-  prefab: {fileID: 250484655935574522, guid: d5ec81bc266a23b4cb67a964b743f300, type: 3}
-  damage: 4
-  speed: 0
-  cooldownDuration: 2.5
-  pierce: 0
+  startingWeapon: {fileID: 8160271337813456415, guid: 4820a98e5ab973342acf8f28ccda66ed, type: 3}
+  maxHealth: 150
+  recovery: 5
+  moveSpeed: 4
+  might: 0
+  projectileSpeed: 0
+  magnet: 1.6

@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExperienceGem : MonoBehaviour, ICollectable
+public class ExperienceGem : PickUps, ICollectable
 {
     public int expGrandeted;
     public void Collect()
     {
         PlayerStats player = FindObjectOfType<PlayerStats>();
         player.IncreaseExperience(expGrandeted);
-        Destroy(gameObject);
-
     }
 
     // Start is called before the first frame update

@@ -11,10 +11,14 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
     public float destroyTime;
 
     //current stats
-    float currentCooldown;
-    float currentDamage;
-    float currentSpeed;
-    float currentPierce;
+    [HideInInspector]
+    public float currentCooldown;
+    [HideInInspector]
+    public float currentDamage;
+    [HideInInspector]
+    public float currentSpeed;
+    [HideInInspector]
+    public float currentPierce;
     void Awake()
     {
         currentCooldown = weaponData.CooldownDuration;
@@ -77,14 +81,14 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
         transform.rotation = Quaternion.Euler(rotation);
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D collision) 
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         //if collision with enemy then take damage
         if (collision.CompareTag("Enemy"))
         {
             EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
             enemyStats.TakeDamage(currentDamage);
-            ReducePierce();     
+            ReducePierce();
         }
         else if (collision.CompareTag("Prop"))
         {
@@ -98,7 +102,7 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 
     void ReducePierce()
     {
-        currentPierce --;
+        currentPierce--;
         if (currentPierce <= 0)
         {
             Destroy(gameObject);
