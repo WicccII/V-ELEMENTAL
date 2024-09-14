@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &758231977 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 280595401507615029, guid: 684810d713042cf4485a57cc7e097328, type: 3}
-  m_PrefabInstance: {fileID: 544760852322379461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &844086924
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +315,7 @@ Transform:
   m_GameObject: {fileID: 963932349}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.13, y: -0.08, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -614,7 +609,7 @@ MonoBehaviour:
     m_Bits: 64
   currentChunk: {fileID: 0}
   spawnChunks:
-  - {fileID: 758231977}
+  - {fileID: 280595401507615029, guid: 684810d713042cf4485a57cc7e097328, type: 3}
   maxOpDistance: 50
   opCoolDownTime: 1
 --- !u!4 &2098933209

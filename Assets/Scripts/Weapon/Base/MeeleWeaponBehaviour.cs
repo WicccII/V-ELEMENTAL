@@ -29,16 +29,23 @@ public class MeeleWeaponBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-     protected virtual void OnTriggerEnter2D(Collider2D collision) 
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         //if collision with enemy then take damage
         if (collision.CompareTag("Enemy"))
         {
             EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
-            enemyStats.TakeDamage(currentDamage);    
+            enemyStats.TakeDamage(currentDamage);
+        }
+        else if (collision.CompareTag("Prop"))
+        {
+            if (collision.TryGetComponent(out BreakableProps breakableProps))
+            {
+                breakableProps.TakeDamage(currentDamage);
+            }
         }
     }
 }
