@@ -85,4 +85,16 @@ public class PlayerStats : MonoBehaviour
     {
         Debug.Log("Player dead");
     }
+
+    public void IncreaseHealth(int amount)
+    {
+        if (currentHealth < playerData.MaxHealth)
+        {
+            currentHealth += amount;
+        }
+        else
+        {
+            currentHealth = playerData.MaxHealth;
+        }
+    }
 }

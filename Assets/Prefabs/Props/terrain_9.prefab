@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8641908800987148662}
   - component: {fileID: -8787918145041186333}
   - component: {fileID: 275759376162244744}
+  - component: {fileID: 4427695304117251616}
   m_Layer: 0
   m_Name: terrain_9
   m_TagString: Prop
@@ -133,4 +134,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fdc92c20b247046849503c16910cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 20
+--- !u!114 &4427695304117251616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7963757277760175458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3b893cc377ab942b84fb3f0bacc016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: HealthPotion
+    itemPrefab: {fileID: 2479104127379794463, guid: 85746840cffd11f4abe6d1eb89e7608d, type: 3}
+    dropRate: 90
