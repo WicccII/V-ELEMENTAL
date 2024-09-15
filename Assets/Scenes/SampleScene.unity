@@ -348,8 +348,8 @@ MonoBehaviour:
   level: 1
   experience: 0
   baseCap: 100
-  experienceCapMultiplier: 1.5
-  levelFactor: 1
+  experienceCapMultiplier: 1.2
+  levelReach: 0
   invisibilityDuration: 1
 --- !u!1001 &1328777159
 PrefabInstance:
