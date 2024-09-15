@@ -10,10 +10,11 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector]
     public Vector2 lastMoveDirection;
 
-    public PlayerScriptableObject playerData;
+    PlayerStats playerStats;
     // Start is called before the first frame update
     void Start()
     {
+        playerStats = GetComponent<PlayerStats>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
         lastMoveDirection = new Vector2(1, 0);
     }
@@ -44,6 +45,6 @@ public class PlayerMove : MonoBehaviour
     }
     private void Move()
     {
-        myRigidbody2D.velocity = new Vector2(moveDirection.x * playerData.MoveSpeed, moveDirection.y * playerData.MoveSpeed);
+        myRigidbody2D.velocity = new Vector2(moveDirection.x * playerStats.currentSpeed, moveDirection.y * playerStats.currentSpeed);
     }
 }

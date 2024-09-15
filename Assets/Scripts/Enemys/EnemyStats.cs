@@ -9,8 +9,9 @@ public class EnemyStats : MonoBehaviour
     public float currentHealth;
     float currentSpeed;
     float currentDamage;
+
     // Start is called before the first frame update
-    void Awake ()
+    void Awake()
     {
         currentHealth = enemyData.Health;
         currentSpeed = enemyData.Speed;
@@ -30,5 +31,14 @@ public class EnemyStats : MonoBehaviour
     void kill()
     {
         Destroy(gameObject);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
+            playerStats.TakeDamage(currentDamage);
+        }
     }
 }
