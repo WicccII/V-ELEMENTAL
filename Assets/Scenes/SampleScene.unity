@@ -384,30 +384,27 @@ MonoBehaviour:
   - waveName: wave 1
     enemyGroup:
     - enemyName: Bat
-      enemyCount: 2
+      enemyCount: 5
       spawnCount: 0
       enemyPrefab: {fileID: 5921802439822152710, guid: 4f4d95b838eac6343b97a47dcbf3d076, type: 3}
-    - enemyName: Blue bat
-      enemyCount: 1
-      spawnCount: 0
-      enemyPrefab: {fileID: 5921802439822152710, guid: 5a5dd4c1958be9a419ad70febe5a7abe, type: 3}
     - enemyName: bat 2
-      enemyCount: 2
-      spawnCount: 0
-      enemyPrefab: {fileID: 5921802439822152710, guid: 4f4d95b838eac6343b97a47dcbf3d076, type: 3}
-    waveQuota: 0
-    spawnInterval: 1
-    spawnCount: 0
-  - waveName: wave 2
-    enemyGroup:
-    - enemyName: Bat
-      enemyCount: 1
+      enemyCount: 5
       spawnCount: 0
       enemyPrefab: {fileID: 5921802439822152710, guid: 4f4d95b838eac6343b97a47dcbf3d076, type: 3}
     waveQuota: 0
     spawnInterval: 5
     spawnCount: 0
+  - waveName: wave 2
+    enemyGroup:
+    - enemyName: Bat
+      enemyCount: 2
+      spawnCount: 0
+      enemyPrefab: {fileID: 5921802439822152710, guid: 5a5dd4c1958be9a419ad70febe5a7abe, type: 3}
+    waveQuota: 0
+    spawnInterval: 5
+    spawnCount: 0
   currentWaveCount: 0
+  waveInterval: 10
 --- !u!4 &1153337678
 Transform:
   m_ObjectHideFlags: 0
@@ -758,5 +755,5 @@ SceneRoots:
   - {fileID: 1849388254}
   - {fileID: 963932353}
   - {fileID: 2098933209}
-  - {fileID: 544760852322379461}
   - {fileID: 1153337678}
+  - {fileID: 544760852322379461}

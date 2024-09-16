@@ -29,6 +29,7 @@ public class EnemySpawn : MonoBehaviour
 
     [Header("Timer")]
     float spawnTimer;
+    public float waveInterval;
 
     // Start is called before the first frame update
     void Start()
@@ -40,11 +41,25 @@ public class EnemySpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentWaveCount < waves.Count && waves[currentWaveCount].spawnCount == 0)
+        {
+            StartCoroutine(BeginNextWave());
+        }
         spawnTimer += Time.deltaTime;
         if (spawnTimer > waves[currentWaveCount].spawnInterval)
         {
             spawnTimer = 0;
             SpawnedEnemy();
+        }
+    }
+
+    IEnumerator BeginNextWave()
+    {
+        yield return new WaitForSeconds(waveInterval);
+        if (currentWaveCount < waves.Count - 1)
+        {
+            currentWaveCount++;
+            CaculateWaveQuota();
         }
     }
 
@@ -77,7 +92,7 @@ public class EnemySpawn : MonoBehaviour
                     Vector2 spawnPosition = new Vector2(player.position.x + x, player.position.y + y);
                     Instantiate(enemyGroup.enemyPrefab, spawnPosition, Quaternion.identity);
                     enemyGroup.spawnCount++;
-                    waves [currentWaveCount].spawnCount++;
+                    waves[currentWaveCount].spawnCount++;
                 }
             }
         }

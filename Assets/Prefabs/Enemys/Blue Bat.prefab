@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 275009467, guid: ccaeb74fb9a689843b5843eb15a8a70e, type: 3}
-  m_Color: {r: 0, g: 0.013794422, b: 1, a: 1}
+  m_Color: {r: 0.0141509175, g: 0.13603783, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5921802439822152710}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9977a4558858b2e44b6cadd08307b463, type: 3}
   m_Name: 
@@ -211,10 +211,10 @@ MonoBehaviour:
   drops:
   - name: GemTier1
     itemPrefab: {fileID: 776726664563090495, guid: 24e096eef7237c94b97a2bb53cb93549, type: 3}
-    dropRate: 80
+    dropRate: 70
   - name: GemTier2
     itemPrefab: {fileID: 5426536025269092473, guid: 68fb535cc10b5474abd24e0582fb296b, type: 3}
-    dropRate: 20
+    dropRate: 30
   - name: GemTier3
     itemPrefab: {fileID: 836137733070366849, guid: b003dc6ae7a32b74baf4bf559d96f56f, type: 3}
     dropRate: 10
