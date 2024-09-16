@@ -20,6 +20,10 @@ public class MeeleWeaponBehaviour : MonoBehaviour
         currentSpeed = weaponData.Speed;
         currentPierce = weaponData.Pierce;
     }
+    public float GetCurrentDamage()
+    {
+        return currentDamage *= FindObjectOfType<PlayerStats>().currentMight;
+    }
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -38,13 +42,13 @@ public class MeeleWeaponBehaviour : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
-            enemyStats.TakeDamage(currentDamage);
+            enemyStats.TakeDamage(GetCurrentDamage());
         }
         else if (collision.CompareTag("Prop"))
         {
             if (collision.TryGetComponent(out BreakableProps breakableProps))
             {
-                breakableProps.TakeDamage(currentDamage);
+                breakableProps.TakeDamage(GetCurrentDamage());
             }
         }
     }
