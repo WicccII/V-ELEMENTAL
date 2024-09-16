@@ -11,6 +11,7 @@ public class WeaponController : MonoBehaviour
     float currentCooldown;
 
     protected PlayerMove playerMove;
+    
     // Start is called before the first frame update
     protected virtual void Start()
     {
