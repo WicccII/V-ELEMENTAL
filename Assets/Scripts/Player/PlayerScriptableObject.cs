@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerScriptableObject : ScriptableObject
 {
     [SerializeField]
+    GameObject character;
+    public GameObject Character {get => character; private set => character = value;}
+    [SerializeField]
     GameObject startingWeapon;
     public GameObject StartingWeapon {get => startingWeapon; private set => startingWeapon = value;}
     [SerializeField]

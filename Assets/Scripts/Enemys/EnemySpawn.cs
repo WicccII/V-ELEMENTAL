@@ -71,7 +71,6 @@ public class EnemySpawn : MonoBehaviour
             currentWaveQuota += enemyGroup.enemyCount;
         }
         waves[currentWaveCount].waveQuota = currentWaveQuota;
-        Debug.LogWarning("CaculateWaveQuota: " + currentWaveQuota);
     }
 
     void SpawnedEnemy()

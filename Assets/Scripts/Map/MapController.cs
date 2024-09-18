@@ -23,6 +23,7 @@ public class MapController : MonoBehaviour
     void Start()
     {
         playerMove = FindObjectOfType<PlayerMove>();
+        player = FindAnyObjectByType<PlayerStats>().transform.gameObject;
     }
 
     // Update is called once per frame

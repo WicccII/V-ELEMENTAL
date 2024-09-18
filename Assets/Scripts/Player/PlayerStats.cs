@@ -19,6 +19,9 @@ public class PlayerStats : MonoBehaviour
     public float currentRecovery;
     [HideInInspector]
     public float currentMagnet;
+    [HideInInspector]
+    public GameObject currentCharacter;
+
 
     //spawn StartingWeapon
     public List<GameObject> spawnWeapons;
@@ -41,7 +44,6 @@ public class PlayerStats : MonoBehaviour
     {
         //Get charater choosing in menu
         playerData = CharacterSelecter.GetCharacter();
-        CharacterSelecter.instance.DestroySingleTon();
 
         currentHealth = playerData.MaxHealth;
         currentSpeed = playerData.MoveSpeed;
@@ -49,9 +51,11 @@ public class PlayerStats : MonoBehaviour
         currentProjectileSpeed = playerData.ProjectileSpeed;
         currentRecovery = playerData.Recovery;
         currentMagnet = playerData.Magnet;
+        currentCharacter = playerData.Character;
 
         //spawn StartingWeapon
         SpawnWeapon(playerData.StartingWeapon);
+
 
         levelReach = GetExperienceCap();
     }
@@ -78,7 +82,6 @@ public class PlayerStats : MonoBehaviour
     {
         experience += amount;
         LevelUpChecker();
-        Debug.Log("Experience: " + experience + " / " + levelReach);
     }
 
     public void LevelUpChecker()
