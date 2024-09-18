@@ -296,13 +296,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33488814389702b48a151a08b95a9c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 0}
+  playerData: {fileID: 11400000, guid: 9f7f6d4047c1c9b4fbb61e9cd32a438a, type: 2}
   currentHealth: 0
   currentSpeed: 0
   currentMight: 0
   currentProjectileSpeed: 0
   currentRecovery: 0
   currentMagnet: 0
+  currentCharacter: {fileID: 0}
   spawnWeapons: []
   level: 1
   experience: 0
