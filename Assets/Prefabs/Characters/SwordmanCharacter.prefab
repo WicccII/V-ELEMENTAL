@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6903495f050853c4ea746e281767de30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullSpeed: 200
+  pullSpeed: 400
 --- !u!1 &240886378675612935
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 1140741554703814075}
   - component: {fileID: 3994383140751455021}
   - component: {fileID: 243524133540587050}
+  - component: {fileID: 3915751938379423220}
   m_Layer: 0
   m_Name: SwordmanCharacter
   m_TagString: Player
@@ -311,3 +312,38 @@ MonoBehaviour:
   experienceCapMultiplier: 1.2
   levelReach: 0
   invisibilityDuration: 1
+--- !u!114 &3915751938379423220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240886378675612935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e31fcfde48627d4b84ef0da0730b35b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillLevels: 000000000000000000000000000000000000000000000000
+  skillUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemLevels: 000000000000000000000000000000000000000000000000

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6503764671076584526}
   - component: {fileID: 8314562318337097334}
   - component: {fileID: 955039156636214743}
+  - component: {fileID: -574799463882146120}
   m_Layer: 0
   m_Name: Knightcharacter
   m_TagString: Player
@@ -230,6 +231,41 @@ MonoBehaviour:
   experienceCapMultiplier: 1.2
   levelReach: 0
   invisibilityDuration: 1
+--- !u!114 &-574799463882146120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313387466334791626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e31fcfde48627d4b84ef0da0730b35b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillLevels: 000000000000000000000000000000000000000000000000
+  skillUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemLevels: 000000000000000000000000000000000000000000000000
 --- !u!1 &7276346164918580142
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,4 +346,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6903495f050853c4ea746e281767de30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullSpeed: 200
+  pullSpeed: 400

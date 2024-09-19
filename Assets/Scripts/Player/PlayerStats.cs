@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    //player
+    [Header("Player Stats")]
     public PlayerScriptableObject playerData;
     [HideInInspector]
     public float currentHealth;
@@ -22,6 +24,10 @@ public class PlayerStats : MonoBehaviour
     [HideInInspector]
     public GameObject currentCharacter;
 
+    //inventory manager
+    InventoryManager inventory;
+    int skillIndex;
+    int itemIndex;
 
     //spawn StartingWeapon
     public List<GameObject> spawnWeapons;
@@ -45,6 +51,8 @@ public class PlayerStats : MonoBehaviour
         //Get charater choosing in menu
         playerData = CharacterSelecter.GetCharacter();
 
+        inventory = FindObjectOfType<InventoryManager>();
+
         currentHealth = playerData.MaxHealth;
         currentSpeed = playerData.MoveSpeed;
         currentMight = playerData.Might;
@@ -53,11 +61,13 @@ public class PlayerStats : MonoBehaviour
         currentMagnet = playerData.Magnet;
         currentCharacter = playerData.Character;
 
+        levelReach = GetExperienceCap();
+    }
+
+    void Start()
+    {
         //spawn StartingWeapon
         SpawnWeapon(playerData.StartingWeapon);
-
-
-        levelReach = GetExperienceCap();
     }
 
     // Update is called once per frame
@@ -135,7 +145,7 @@ public class PlayerStats : MonoBehaviour
         if (currentHealth < playerData.MaxHealth)
         {
             currentHealth += currentRecovery * Time.deltaTime;
-        } 
+        }
         else
         {
             currentHealth = playerData.MaxHealth;
@@ -144,9 +154,29 @@ public class PlayerStats : MonoBehaviour
 
     public void SpawnWeapon(GameObject weapon)
     {
+        if (skillIndex >= inventory.skillSlots.Count - 1)
+        {
+            Debug.LogWarning("Inventory Full !!!");
+            return;
+        }
         //startingWeapon
         GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
         spawnedWeapon.transform.SetParent(transform); //set child of player
-        spawnWeapons.Add(spawnedWeapon); //add into list of weapons
+        inventory.AddSkill(skillIndex, spawnedWeapon.GetComponent<WeaponController>());
+        skillIndex++;
+    }
+
+    public void SpawnItem(GameObject item)
+    {
+        if (skillIndex >= inventory.itemSlots.Count - 1)
+        {
+            Debug.LogWarning("Inventory Full !!!");
+            return;
+        }
+        //startingWeapon
+        GameObject spawnedItem = Instantiate(item, transform.position, Quaternion.identity);
+        spawnedItem.transform.SetParent(transform); //set child of player
+        inventory.AddItem(itemIndex, spawnedItem.GetComponent<PassiveItem>());
+        itemIndex++;
     }
 }

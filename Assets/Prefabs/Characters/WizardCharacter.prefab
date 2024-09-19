@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6425048636717767237}
   - component: {fileID: 6395236969703806776}
   - component: {fileID: 8239384370144967122}
+  - component: {fileID: -6222486742584637267}
   m_Layer: 0
   m_Name: WizardCharacter
   m_TagString: Player
@@ -230,6 +231,41 @@ MonoBehaviour:
   experienceCapMultiplier: 1.2
   levelReach: 0
   invisibilityDuration: 1
+--- !u!114 &-6222486742584637267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5597652905904093324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e31fcfde48627d4b84ef0da0730b35b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  skillLevels: 000000000000000000000000000000000000000000000000
+  skillUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemLevels: 000000000000000000000000000000000000000000000000
 --- !u!1 &7885596616033010453
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,4 +346,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6903495f050853c4ea746e281767de30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullSpeed: 200
+  pullSpeed: 400
