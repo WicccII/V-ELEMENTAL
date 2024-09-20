@@ -9,20 +9,112 @@ public class PlayerStats : MonoBehaviour
     //player
     [Header("Player Stats")]
     public PlayerScriptableObject playerData;
-    [HideInInspector]
-    public float currentHealth;
-    [HideInInspector]
-    public float currentSpeed;
-    [HideInInspector]
-    public float currentMight;
-    [HideInInspector]
-    public float currentProjectileSpeed;
-    [HideInInspector]
-    public float currentRecovery;
-    [HideInInspector]
-    public float currentMagnet;
-    [HideInInspector]
+    float currentHealth;
+    float currentSpeed;
+    float currentMight;
+    float currentProjectileSpeed;
+    float currentRecovery;
+    float currentMagnet;
     public GameObject currentCharacter;
+
+    #region Plaer current stats
+
+    public float CurrentHealth
+    {
+        get { return currentHealth; }
+        set
+        {
+            if (currentHealth != value)
+            {
+                currentHealth = value;
+                //update realtime stats
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentHealthDisplay.text = "Health :" + currentHealth;
+                }
+            }
+        }
+    }
+    public float CurrentSpeed
+    {
+        get { return currentSpeed; }
+        set
+        {
+            if (currentSpeed != value)
+            {
+                currentSpeed = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentSpeedDisplay.text = "Speed :" + currentSpeed;
+                }
+            }
+        }
+    }
+
+    public float CurrentMight
+    {
+        get { return currentMight; }
+        set
+        {
+            if (currentMight != value)
+            {
+                currentMight = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentMightDisplay.text = "Might :" + currentMight;
+                }
+            }
+        }
+    }
+
+    public float CurrentProjectileSpeed
+    {
+        get { return currentProjectileSpeed; }
+        set
+        {
+            if (currentProjectileSpeed != value)
+            {
+                currentProjectileSpeed = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentProjectileDisplay.text = "Projectile Speed :" + currentProjectileSpeed;
+                }
+            }
+        }
+    }
+
+    public float CurrentRecovery
+    {
+        get { return currentRecovery; }
+        set
+        {
+            if (currentRecovery != value)
+            {
+                currentRecovery = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentRecoverDisplay.text = "Recover :" + currentRecovery;
+                }
+            }
+        }
+    }
+
+    public float CurrentMagnet
+    {
+        get { return currentMagnet; }
+        set
+        {
+            if (currentMagnet != value)
+            {
+                currentMagnet = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentMagnetDisplay.text = "Magnet :" + currentMagnet;
+                }
+            }
+        }
+    }
+    #endregion
 
     //inventory manager
     InventoryManager inventory;
@@ -53,12 +145,12 @@ public class PlayerStats : MonoBehaviour
 
         inventory = FindObjectOfType<InventoryManager>();
 
-        currentHealth = playerData.MaxHealth;
-        currentSpeed = playerData.MoveSpeed;
-        currentMight = playerData.Might;
-        currentProjectileSpeed = playerData.ProjectileSpeed;
-        currentRecovery = playerData.Recovery;
-        currentMagnet = playerData.Magnet;
+        CurrentHealth = playerData.MaxHealth;
+        CurrentSpeed = playerData.MoveSpeed;
+        CurrentMight = playerData.Might;
+        CurrentProjectileSpeed = playerData.ProjectileSpeed;
+        CurrentRecovery = playerData.Recovery;
+        CurrentMagnet = playerData.Magnet;
         currentCharacter = playerData.Character;
 
         levelReach = GetExperienceCap();
@@ -68,6 +160,17 @@ public class PlayerStats : MonoBehaviour
     {
         //spawn StartingWeapon
         SpawnWeapon(playerData.StartingWeapon);
+
+        //set stats
+        GameManager.Instance.currentHealthDisplay.text = "Health :" + currentHealth;
+        GameManager.Instance.currentSpeedDisplay.text = "Speed :" + currentSpeed;
+        GameManager.Instance.currentRecoverDisplay.text = "Recover :" + currentRecovery;
+        GameManager.Instance.currentMightDisplay.text = "Might :" + currentMight;
+        GameManager.Instance.currentProjectileDisplay.text = "Projectile Speed :" + currentProjectileSpeed;
+        GameManager.Instance.currentMagnetDisplay.text = "Magnet :" + currentMagnet;
+
+        //AssignChoosenCharacter
+        GameManager.Instance.AssignChoosenCharacter(playerData);
     }
 
     // Update is called once per frame
@@ -115,8 +218,8 @@ public class PlayerStats : MonoBehaviour
         {
             invisibilityTimer = invisibilityDuration;
             isInvincible = true;
-            currentHealth -= damage;
-            if (currentHealth <= 0)
+            CurrentHealth -= damage;
+            if (CurrentHealth <= 0)
             {
                 Kill();
             }
@@ -125,30 +228,33 @@ public class PlayerStats : MonoBehaviour
 
     void Kill()
     {
-        Debug.Log("Player dead");
+        if(!GameManager.Instance.isGameOver)
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 
     public void IncreaseHealth(int amount)
     {
-        if (currentHealth < playerData.MaxHealth)
+        if (CurrentHealth < playerData.MaxHealth)
         {
-            currentHealth += amount;
+            CurrentHealth += amount;
         }
         else
         {
-            currentHealth = playerData.MaxHealth;
+            CurrentHealth = playerData.MaxHealth;
         }
     }
 
     void recover()
     {
-        if (currentHealth < playerData.MaxHealth)
+        if (CurrentHealth < playerData.MaxHealth)
         {
-            currentHealth += currentRecovery * Time.deltaTime;
+            CurrentHealth += CurrentRecovery * Time.deltaTime;
         }
         else
         {
-            currentHealth = playerData.MaxHealth;
+            CurrentHealth = playerData.MaxHealth;
         }
     }
 

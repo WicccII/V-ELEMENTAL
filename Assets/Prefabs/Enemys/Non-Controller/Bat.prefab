@@ -211,10 +211,10 @@ MonoBehaviour:
   drops:
   - name: GemTier1
     itemPrefab: {fileID: 776726664563090495, guid: 24e096eef7237c94b97a2bb53cb93549, type: 3}
-    dropRate: 80
+    dropRate: 90
   - name: GemTier2
     itemPrefab: {fileID: 5426536025269092473, guid: 68fb535cc10b5474abd24e0582fb296b, type: 3}
-    dropRate: 20
+    dropRate: 10
   - name: GemTier3
     itemPrefab: {fileID: 836137733070366849, guid: b003dc6ae7a32b74baf4bf559d96f56f, type: 3}
-    dropRate: 10
+    dropRate: 5

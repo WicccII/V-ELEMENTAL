@@ -17,7 +17,7 @@ public class PlayerCollector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerCollider.radius = playerStats.currentMagnet;
+        playerCollider.radius = playerStats.CurrentMagnet;
     }
 
     void OnTriggerStay2D(Collider2D collider2D)

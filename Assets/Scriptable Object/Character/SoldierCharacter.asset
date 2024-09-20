@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca03f45358cc04479c154aa1cdb07cd, type: 3}
   m_Name: SoldierCharacter
   m_EditorClassIdentifier: 
+  icon: {fileID: 6664745826445550981, guid: 398d767923ca3c547878683b5775c907, type: 3}
+  characterName: Soldier
   character: {fileID: 6321658903785512900, guid: f87f9255f24125e4e81d23ca74d7b3e7, type: 3}
   startingWeapon: {fileID: 8160271337813456415, guid: 4820a98e5ab973342acf8f28ccda66ed, type: 3}
   maxHealth: 125

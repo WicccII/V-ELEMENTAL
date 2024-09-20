@@ -6,7 +6,7 @@ public class WingPassive : PassiveItem
 {
     protected override void ApplyMultiplier()
     {
-        player.currentSpeed *= 1 + passiveItemData.Multiplier / 100f;
+        player.CurrentSpeed *= 1 + passiveItemData.Multiplier / 100f;
     }
     // Start is called before the first frame update
     protected override void Start()

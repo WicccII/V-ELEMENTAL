@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca03f45358cc04479c154aa1cdb07cd, type: 3}
   m_Name: KnightCharacter
   m_EditorClassIdentifier: 
+  icon: {fileID: -1679906325162060478, guid: b55f668d01e2e5346a8c71268c591ae5, type: 3}
+  characterName: Knight
   character: {fileID: 6313387466334791626, guid: e11780a8b452f9e4ebff2af676ebbe17, type: 3}
   startingWeapon: {fileID: 8160271337813456415, guid: 4820a98e5ab973342acf8f28ccda66ed, type: 3}
   maxHealth: 150

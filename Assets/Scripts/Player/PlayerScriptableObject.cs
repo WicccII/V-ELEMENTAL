@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "ScriptableObject", menuName = "ScriptableObject/Character")]
 public class PlayerScriptableObject : ScriptableObject
 {
+    [SerializeField]
+    Sprite icon;
+    public Sprite Icon { get => icon; set => icon = value; }
+    [SerializeField]
+    string characterName;
+    public string CharacterName { get => characterName; set => characterName = value; }
     [SerializeField]
     GameObject character;
     public GameObject Character {get => character; private set => character = value;}

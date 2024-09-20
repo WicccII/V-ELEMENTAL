@@ -34,7 +34,7 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 
     public float GetCurrentDamage()
     {
-        return currentDamage*=FindObjectOfType<PlayerStats>().currentMight;
+        return currentDamage*=FindObjectOfType<PlayerStats>().CurrentMight;
     }
 
     // Update is called once per frame

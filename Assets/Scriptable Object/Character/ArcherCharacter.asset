@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca03f45358cc04479c154aa1cdb07cd, type: 3}
   m_Name: ArcherCharacter
   m_EditorClassIdentifier: 
+  icon: {fileID: -7039861718570908266, guid: 9f7eee493b104d64d8e9eb083d1a39f1, type: 3}
+  characterName: Archer
   character: {fileID: 3932652944786338553, guid: cb95cd1cf6a62f642ab254469a795338, type: 3}
   startingWeapon: {fileID: 3983153425984928852, guid: fdae9e6330220ce4cb4968f60dc449de, type: 3}
   maxHealth: 100
