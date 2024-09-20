@@ -6,7 +6,7 @@ public class SpinatchPassive : PassiveItem
 {
     protected override void ApplyMultiplier()
     {
-        player.currentMight *= 1 + passiveItemData.Multiplier / 100f;
+        player.CurrentMight *= 1 + passiveItemData.Multiplier / 100f;
     }
     // Start is called before the first frame update
     protected override void Start()

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ca03f45358cc04479c154aa1cdb07cd, type: 3}
+  m_Name: KnightCharacter
+  m_EditorClassIdentifier: 
+  icon: {fileID: -1679906325162060478, guid: b55f668d01e2e5346a8c71268c591ae5, type: 3}
+  characterName: Knight
+  character: {fileID: 6313387466334791626, guid: e11780a8b452f9e4ebff2af676ebbe17, type: 3}
+  startingWeapon: {fileID: 8160271337813456415, guid: 4820a98e5ab973342acf8f28ccda66ed, type: 3}
+  maxHealth: 150
+  recovery: 6
+  moveSpeed: 3.5
+  might: 1
+  projectileSpeed: 0
+  magnet: 1.6

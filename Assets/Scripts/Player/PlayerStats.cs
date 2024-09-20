@@ -6,19 +6,120 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    //player
+    [Header("Player Stats")]
     public PlayerScriptableObject playerData;
-    [HideInInspector]
-    public float currentHealth;
-    [HideInInspector]
-    public float currentSpeed;
-    [HideInInspector]
-    public float currentMight;
-    [HideInInspector]
-    public float currentProjectileSpeed;
-    [HideInInspector]
-    public float currentRecovery;
-    [HideInInspector]
-    public float currentMagnet;
+    float currentHealth;
+    float currentSpeed;
+    float currentMight;
+    float currentProjectileSpeed;
+    float currentRecovery;
+    float currentMagnet;
+    public GameObject currentCharacter;
+
+    #region Plaer current stats
+
+    public float CurrentHealth
+    {
+        get { return currentHealth; }
+        set
+        {
+            if (currentHealth != value)
+            {
+                currentHealth = value;
+                //update realtime stats
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentHealthDisplay.text = "Health :" + currentHealth;
+                }
+            }
+        }
+    }
+    public float CurrentSpeed
+    {
+        get { return currentSpeed; }
+        set
+        {
+            if (currentSpeed != value)
+            {
+                currentSpeed = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentSpeedDisplay.text = "Speed :" + currentSpeed;
+                }
+            }
+        }
+    }
+
+    public float CurrentMight
+    {
+        get { return currentMight; }
+        set
+        {
+            if (currentMight != value)
+            {
+                currentMight = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentMightDisplay.text = "Might :" + currentMight;
+                }
+            }
+        }
+    }
+
+    public float CurrentProjectileSpeed
+    {
+        get { return currentProjectileSpeed; }
+        set
+        {
+            if (currentProjectileSpeed != value)
+            {
+                currentProjectileSpeed = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentProjectileDisplay.text = "Projectile Speed :" + currentProjectileSpeed;
+                }
+            }
+        }
+    }
+
+    public float CurrentRecovery
+    {
+        get { return currentRecovery; }
+        set
+        {
+            if (currentRecovery != value)
+            {
+                currentRecovery = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentRecoverDisplay.text = "Recover :" + currentRecovery;
+                }
+            }
+        }
+    }
+
+    public float CurrentMagnet
+    {
+        get { return currentMagnet; }
+        set
+        {
+            if (currentMagnet != value)
+            {
+                currentMagnet = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentMagnetDisplay.text = "Magnet :" + currentMagnet;
+                }
+            }
+        }
+    }
+    #endregion
+
+    //inventory manager
+    InventoryManager inventory;
+    int skillIndex;
+    int itemIndex;
 
     //spawn StartingWeapon
     public List<GameObject> spawnWeapons;
@@ -41,19 +142,35 @@ public class PlayerStats : MonoBehaviour
     {
         //Get charater choosing in menu
         playerData = CharacterSelecter.GetCharacter();
-        CharacterSelecter.instance.DestroySingleTon();
 
-        currentHealth = playerData.MaxHealth;
-        currentSpeed = playerData.MoveSpeed;
-        currentMight = playerData.Might;
-        currentProjectileSpeed = playerData.ProjectileSpeed;
-        currentRecovery = playerData.Recovery;
-        currentMagnet = playerData.Magnet;
+        inventory = FindObjectOfType<InventoryManager>();
 
+        CurrentHealth = playerData.MaxHealth;
+        CurrentSpeed = playerData.MoveSpeed;
+        CurrentMight = playerData.Might;
+        CurrentProjectileSpeed = playerData.ProjectileSpeed;
+        CurrentRecovery = playerData.Recovery;
+        CurrentMagnet = playerData.Magnet;
+        currentCharacter = playerData.Character;
+
+        levelReach = GetExperienceCap();
+    }
+
+    void Start()
+    {
         //spawn StartingWeapon
         SpawnWeapon(playerData.StartingWeapon);
 
-        levelReach = GetExperienceCap();
+        //set stats
+        GameManager.Instance.currentHealthDisplay.text = "Health :" + currentHealth;
+        GameManager.Instance.currentSpeedDisplay.text = "Speed :" + currentSpeed;
+        GameManager.Instance.currentRecoverDisplay.text = "Recover :" + currentRecovery;
+        GameManager.Instance.currentMightDisplay.text = "Might :" + currentMight;
+        GameManager.Instance.currentProjectileDisplay.text = "Projectile Speed :" + currentProjectileSpeed;
+        GameManager.Instance.currentMagnetDisplay.text = "Magnet :" + currentMagnet;
+
+        //AssignChoosenCharacter
+        GameManager.Instance.AssignChoosenCharacter(playerData);
     }
 
     // Update is called once per frame
@@ -78,7 +195,6 @@ public class PlayerStats : MonoBehaviour
     {
         experience += amount;
         LevelUpChecker();
-        Debug.Log("Experience: " + experience + " / " + levelReach);
     }
 
     public void LevelUpChecker()
@@ -102,8 +218,8 @@ public class PlayerStats : MonoBehaviour
         {
             invisibilityTimer = invisibilityDuration;
             isInvincible = true;
-            currentHealth -= damage;
-            if (currentHealth <= 0)
+            CurrentHealth -= damage;
+            if (CurrentHealth <= 0)
             {
                 Kill();
             }
@@ -112,38 +228,61 @@ public class PlayerStats : MonoBehaviour
 
     void Kill()
     {
-        Debug.Log("Player dead");
+        if(!GameManager.Instance.isGameOver)
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 
     public void IncreaseHealth(int amount)
     {
-        if (currentHealth < playerData.MaxHealth)
+        if (CurrentHealth < playerData.MaxHealth)
         {
-            currentHealth += amount;
+            CurrentHealth += amount;
         }
         else
         {
-            currentHealth = playerData.MaxHealth;
+            CurrentHealth = playerData.MaxHealth;
         }
     }
 
     void recover()
     {
-        if (currentHealth < playerData.MaxHealth)
+        if (CurrentHealth < playerData.MaxHealth)
         {
-            currentHealth += currentRecovery * Time.deltaTime;
-        } 
+            CurrentHealth += CurrentRecovery * Time.deltaTime;
+        }
         else
         {
-            currentHealth = playerData.MaxHealth;
+            CurrentHealth = playerData.MaxHealth;
         }
     }
 
     public void SpawnWeapon(GameObject weapon)
     {
+        if (skillIndex >= inventory.skillSlots.Count - 1)
+        {
+            Debug.LogWarning("Inventory Full !!!");
+            return;
+        }
         //startingWeapon
         GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
         spawnedWeapon.transform.SetParent(transform); //set child of player
-        spawnWeapons.Add(spawnedWeapon); //add into list of weapons
+        inventory.AddSkill(skillIndex, spawnedWeapon.GetComponent<WeaponController>());
+        skillIndex++;
+    }
+
+    public void SpawnItem(GameObject item)
+    {
+        if (skillIndex >= inventory.itemSlots.Count - 1)
+        {
+            Debug.LogWarning("Inventory Full !!!");
+            return;
+        }
+        //startingWeapon
+        GameObject spawnedItem = Instantiate(item, transform.position, Quaternion.identity);
+        spawnedItem.transform.SetParent(transform); //set child of player
+        inventory.AddItem(itemIndex, spawnedItem.GetComponent<PassiveItem>());
+        itemIndex++;
     }
 }
