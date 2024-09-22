@@ -208,7 +208,19 @@ public class GameManager : MonoBehaviour
     public void StartLevelUp()
     {
         ChangeState(GameState.LevelUp);
-        playerObject.SendMessage("RemoveAndApplyUpgradeOption");
+        // playerObject = GameObject.FindGameObjectWithTag("Player");
+        // playerObject.SendMessage("RemoveAndApplyUpgradeOption");
+        // Find the UIManager in the scene
+        UIManager uiManager = FindObjectOfType<UIManager>();
+        if (uiManager != null)
+        {
+            // Call the method directly
+            uiManager.RemoveAndApplyUpgradeOption();
+        }
+        else
+        {
+            Debug.LogError("UIManager not found in the scene.");
+        }
     }
 
     public void EndLevelUp()

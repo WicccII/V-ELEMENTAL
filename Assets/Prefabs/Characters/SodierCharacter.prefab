@@ -263,6 +263,8 @@ MonoBehaviour:
   skillUpgradesOption:
   - initialSkill: {fileID: 3983153425984928852, guid: fdae9e6330220ce4cb4968f60dc449de, type: 3}
     skillData: {fileID: 11400000, guid: 242a68a1595188345990cda97263db6a, type: 2}
+  - initialSkill: {fileID: 8160271337813456415, guid: 4820a98e5ab973342acf8f28ccda66ed, type: 3}
+    skillData: {fileID: 11400000, guid: fba2996d92012524a8bf7ff53f972860, type: 2}
 --- !u!1 &7874446780471109239
 GameObject:
   m_ObjectHideFlags: 0

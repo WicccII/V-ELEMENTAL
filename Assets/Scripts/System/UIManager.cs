@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     {
         public Text upgradeName;
         public Text ugradeDescription;
-        public Sprite upgradeIcon;
+        public Image upgradeIcon;
         public Button upgradeButton;
     }
 
@@ -83,7 +83,7 @@ public class UIManager : MonoBehaviour
                             if (!newSkill)
                             {
                                 upgrade.upgradeButton.onClick.AddListener(() => inventory.LevelUpSkill(i));
-                                upgrade.upgradeIcon = chosenSkillUpgrade.skillData.NextLevelPrefab.GetComponent<WeaponController>().weaponData.Icon;
+                                upgrade.upgradeIcon.sprite = chosenSkillUpgrade.skillData.NextLevelPrefab.GetComponent<WeaponController>().weaponData.Icon;
                                 upgrade.upgradeName.text = chosenSkillUpgrade.skillData.NextLevelPrefab.GetComponent<WeaponController>().weaponData.Name;
                                 upgrade.ugradeDescription.text = chosenSkillUpgrade.skillData.NextLevelPrefab.GetComponent<WeaponController>().weaponData.Description;
                             }
@@ -97,10 +97,10 @@ public class UIManager : MonoBehaviour
                     if (newSkill)
                     {
                         upgrade.upgradeButton.onClick.AddListener(() => player.GetComponent<PlayerStats>().SpawnWeapon(chosenSkillUpgrade.initialSkill));
+                        upgrade.upgradeIcon.sprite = chosenSkillUpgrade.skillData.Icon;
+                        upgrade.upgradeName.text = chosenSkillUpgrade.skillData.Name;
+                        upgrade.ugradeDescription.text = chosenSkillUpgrade.skillData.Description;
                     }
-                    upgrade.upgradeIcon = chosenSkillUpgrade.skillData.Icon;
-                    upgrade.upgradeName.text = chosenSkillUpgrade.skillData.Name;
-                    upgrade.ugradeDescription.text = chosenSkillUpgrade.skillData.Description;
                 }
             }
         }
