@@ -217,12 +217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 26641d71bd4aa244c8266ff66ea46baa, type: 2}
-  currentHealth: 0
-  currentSpeed: 0
-  currentMight: 0
-  currentProjectileSpeed: 0
-  currentRecovery: 0
-  currentMagnet: 0
   currentCharacter: {fileID: 0}
   spawnWeapons: []
   level: 1
@@ -266,6 +260,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   itemLevels: 000000000000000000000000000000000000000000000000
+  skillUpgradesOption:
+  - initialSkill: {fileID: 3983153425984928852, guid: fdae9e6330220ce4cb4968f60dc449de, type: 3}
+    skillData: {fileID: 11400000, guid: 242a68a1595188345990cda97263db6a, type: 2}
 --- !u!1 &7276346164918580142
 GameObject:
   m_ObjectHideFlags: 0

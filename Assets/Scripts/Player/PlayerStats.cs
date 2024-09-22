@@ -154,13 +154,13 @@ public class PlayerStats : MonoBehaviour
         currentCharacter = playerData.Character;
 
         levelReach = GetExperienceCap();
+
+        //spawn StartingWeapon
+        SpawnWeapon(playerData.StartingWeapon);
     }
 
     void Start()
     {
-        //spawn StartingWeapon
-        SpawnWeapon(playerData.StartingWeapon);
-
         //set stats
         GameManager.Instance.currentHealthDisplay.text = "Health :" + currentHealth;
         GameManager.Instance.currentSpeedDisplay.text = "Speed :" + currentSpeed;
@@ -171,6 +171,9 @@ public class PlayerStats : MonoBehaviour
 
         //AssignChoosenCharacter
         GameManager.Instance.AssignChoosenCharacter(playerData);
+
+        //AssignChoseSkillUI
+        GameManager.Instance.ChooseSkillAssign(inventory.skillUI);
     }
 
     // Update is called once per frame
@@ -203,6 +206,7 @@ public class PlayerStats : MonoBehaviour
         {
             experience -= GetExperienceCap(); // Deduct the current cap from experience
             level++; // Level up
+            GameManager.Instance.StartLevelUp();
         }
     }
 
@@ -228,7 +232,7 @@ public class PlayerStats : MonoBehaviour
 
     void Kill()
     {
-        if(!GameManager.Instance.isGameOver)
+        if (!GameManager.Instance.isGameOver)
         {
             GameManager.Instance.GameOver();
         }
