@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5275614124f16e945a38986861e8e20a
+guid: 17e3e75897bd6204893d1ca8d3e1d602
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,70 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Book_0
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 162
-        width: 44
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 7, z: 7, w: 7}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f687628ccb7d4449bc31b3f71b8d38b
-      internalID: -1550958429
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Book_1
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 248
-        width: 70
-        height: 88
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 4, z: 3, w: 3}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40faab7822f9a124bb33c129b52f8d68
-      internalID: -310639430
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Book_2
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 146
-        width: 44
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 7, y: 2, z: 7, w: 2}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e6a619b0dbd97a478e7d974c270f4b3
-      internalID: -466644403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -182,10 +119,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Book_0: -1550958429
-      Book_1: -310639430
-      Book_2: -466644403
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

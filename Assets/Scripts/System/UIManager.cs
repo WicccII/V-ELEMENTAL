@@ -9,7 +9,11 @@ public class UIManager : MonoBehaviour
 {
     InventoryManager inventory;
 
-    GameObject player;
+    public GameObject player;
+
+    PlayerStats playerStatsSript;
+
+    public Image expbar;
 
     public List<Image> SkillUIIcon = new List<Image>(6);
 
@@ -24,10 +28,10 @@ public class UIManager : MonoBehaviour
 
     public List<UpgradeUI> upgradeUIOption = new List<UpgradeUI>();
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         player = FindObjectOfType<PlayerStats>().gameObject;
-
+        playerStatsSript = FindObjectOfType<PlayerStats>();
         inventory = FindObjectOfType<InventoryManager>();
         // After spawning the player, initialize skills and update UI
         AddSkillUI();
@@ -36,6 +40,12 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         AddSkillUI();
+        UpdateEXPbar();
+    }
+
+    void UpdateEXPbar()
+    {
+        expbar.fillAmount = playerStatsSript.experience / playerStatsSript.levelReach;
     }
 
     public void AddSkillUI()
@@ -58,22 +68,28 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void LevelUpSkill(int skillIndex)
-    {
-        inventory.LevelUpSkill(skillIndex);
-    }
-
     void ApplyUpgradeOption()
     {
+        List<SkillUpgrade> availableSkillUpgradesOption = new List<SkillUpgrade>(inventory.skillUpgradesOption);
         foreach (var upgrade in upgradeUIOption)
         {
-            int upgradeType = Random.Range(1, 1);
+            int upgradeType;
+            if (availableSkillUpgradesOption.Count == 0)
+            {
+                return;
+            }
+            else
+            {
+                upgradeType = Random.Range(1, 1);
+            }
 
             if (upgradeType == 1)
             {
-                SkillUpgrade chosenSkillUpgrade = inventory.skillUpgradesOption[Random.Range(0, inventory.skillUpgradesOption.Count)];
+                SkillUpgrade chosenSkillUpgrade = availableSkillUpgradesOption[Random.Range(0, availableSkillUpgradesOption.Count)];
+                availableSkillUpgradesOption.Remove(chosenSkillUpgrade);
                 if (chosenSkillUpgrade != null)
                 {
+                    enableUpgradeUI(upgrade);
                     bool newSkill = false;
                     for (int i = 0; i < inventory.skillSlots.Count; i++)
                     {
@@ -82,7 +98,12 @@ public class UIManager : MonoBehaviour
                             newSkill = false;
                             if (!newSkill)
                             {
-                                upgrade.upgradeButton.onClick.AddListener(() => inventory.LevelUpSkill(i));
+                                if (!chosenSkillUpgrade.skillData.NextLevelPrefab)
+                                {
+                                    disableUpgradeUI(upgrade);
+                                    break;
+                                }
+                                upgrade.upgradeButton.onClick.AddListener(() => inventory.LevelUpSkill(i, chosenSkillUpgrade.skillUpgradeIndex));
                                 upgrade.upgradeIcon.sprite = chosenSkillUpgrade.skillData.NextLevelPrefab.GetComponent<WeaponController>().weaponData.Icon;
                                 upgrade.upgradeName.text = chosenSkillUpgrade.skillData.NextLevelPrefab.GetComponent<WeaponController>().weaponData.Name;
                                 upgrade.ugradeDescription.text = chosenSkillUpgrade.skillData.NextLevelPrefab.GetComponent<WeaponController>().weaponData.Description;
@@ -111,6 +132,7 @@ public class UIManager : MonoBehaviour
         foreach (var upgrade in upgradeUIOption)
         {
             upgrade.upgradeButton.onClick.RemoveAllListeners();
+            disableUpgradeUI(upgrade);
         }
     }
 
@@ -118,6 +140,16 @@ public class UIManager : MonoBehaviour
     {
         RemoveUpgradeOption();
         ApplyUpgradeOption();
+    }
+
+    void disableUpgradeUI(UpgradeUI upgradeUI)
+    {
+        upgradeUI.upgradeName.transform.parent.gameObject.SetActive(false);
+    }
+
+    void enableUpgradeUI(UpgradeUI upgradeUI)
+    {
+        upgradeUI.upgradeName.transform.parent.gameObject.SetActive(true);
     }
 
 }

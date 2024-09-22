@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ChacracterSpawn : MonoBehaviour
 {
     GameObject player;
-    public InventoryManager inventory;
     // Start is called before the first frame update
     void Awake()
     {

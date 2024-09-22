@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using Image = UnityEngine.UI.Image;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -116,6 +118,7 @@ public class PlayerStats : MonoBehaviour
     }
     #endregion
 
+    public Image healthBar;
     //inventory manager
     InventoryManager inventory;
     int skillIndex;
@@ -171,9 +174,6 @@ public class PlayerStats : MonoBehaviour
 
         //AssignChoosenCharacter
         GameManager.Instance.AssignChoosenCharacter(playerData);
-
-        //AssignChoseSkillUI
-        GameManager.Instance.ChooseSkillAssign(inventory.skillUI);
     }
 
     // Update is called once per frame
@@ -192,6 +192,13 @@ public class PlayerStats : MonoBehaviour
         }
         recover();
         levelReach = GetExperienceCap();
+        UpdateHealthBar();
+    }
+
+    void LateUpdate()
+    {
+        //AssignChoseSkillUI
+        GameManager.Instance.ChooseSkillAssign(inventory.skillUI);
     }
 
     public void IncreaseExperience(int amount)
@@ -228,6 +235,11 @@ public class PlayerStats : MonoBehaviour
                 Kill();
             }
         }
+    }
+
+    void UpdateHealthBar()
+    {
+        healthBar.fillAmount = CurrentHealth / playerData.MaxHealth;
     }
 
     void Kill()

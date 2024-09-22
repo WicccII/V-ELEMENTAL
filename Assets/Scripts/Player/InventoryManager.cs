@@ -16,6 +16,7 @@ public class InventoryManager : MonoBehaviour
     [System.Serializable]
     public class SkillUpgrade
     {
+        public int skillUpgradeIndex;
         public GameObject initialSkill;
         public WeaponScriptableObject skillData;
     }
@@ -43,7 +44,7 @@ public class InventoryManager : MonoBehaviour
         itemLevels[indexSlot] = item.passiveItemData.Level;
     }
 
-    public void LevelUpSkill(int indexSlot)
+    public void LevelUpSkill(int indexSlot, int skillUpgradeIndex)
     {
         if (skillSlots.Count > indexSlot)
         {
@@ -57,6 +58,7 @@ public class InventoryManager : MonoBehaviour
             upgrdeSkill.transform.SetParent(transform);
             AddSkill(indexSlot, upgrdeSkill.GetComponent<WeaponController>());
             Destroy(skill.gameObject);
+            skillUpgradesOption[skillUpgradeIndex].skillData = upgrdeSkill.GetComponent<WeaponController>().weaponData;
             skillLevels[indexSlot] = upgrdeSkill.GetComponent<WeaponController>().weaponData.Level;
         }
     }

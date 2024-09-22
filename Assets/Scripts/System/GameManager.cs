@@ -90,7 +90,6 @@ public class GameManager : MonoBehaviour
                 {
                     chooseUpgrade = true;
                     Time.timeScale = 0f;
-                    Debug.Log("LevelUp");
                     levelUpScene.SetActive(true);
                 }
                 break;
@@ -208,8 +207,6 @@ public class GameManager : MonoBehaviour
     public void StartLevelUp()
     {
         ChangeState(GameState.LevelUp);
-        // playerObject = GameObject.FindGameObjectWithTag("Player");
-        // playerObject.SendMessage("RemoveAndApplyUpgradeOption");
         // Find the UIManager in the scene
         UIManager uiManager = FindObjectOfType<UIManager>();
         if (uiManager != null)
