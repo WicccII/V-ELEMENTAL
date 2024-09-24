@@ -12,13 +12,15 @@ public class GameManager : MonoBehaviour
     {
         Ganeplay,
         Pause,
-        GameOver
+        GameOver,
+        LevelUp
     }
     [Header("UI")]
     public GameObject pauseScene;
     public GameObject gameOverScene;
+    public GameObject levelUpScene;
 
-    //stats
+    [Header("Stats")]
     public Text currentHealthDisplay;
     public Text currentRecoverDisplay;
     public Text currentSpeedDisplay;
@@ -26,16 +28,27 @@ public class GameManager : MonoBehaviour
     public Text currentProjectileDisplay;
     public Text currentMagnetDisplay;
 
-    //result DisplayResult
+    [Header("Result scene display")]
     public Image choosenChraacterImage;
     public Text choosenCharcterName;
+    public Text timeSurvivedDisplay;
+    public List<Image> chooseSkill = new List<Image>(6);
 
-    // current state stored
+    [Header("State")]
     public GameState currentState;
     public GameState previousState;
 
     //check if GameOver
+    [HideInInspector]
     public bool isGameOver = false;
+    public bool chooseUpgrade = false;
+
+    [Header("StopWatch")]
+    public float timeLimit;
+    float StopWatchTime;
+    public Text timeDisplay;
+
+    public GameObject playerObject;
 
     void Awake()
     {
@@ -58,6 +71,7 @@ public class GameManager : MonoBehaviour
         {
             case GameState.Ganeplay:
                 CheckPauseAndResume();
+                UpdateStopWatch();
                 break;
             case GameState.Pause:
                 CheckPauseAndResume();
@@ -69,6 +83,14 @@ public class GameManager : MonoBehaviour
                     Time.timeScale = 0f;
                     Debug.Log("GameOver");
                     DisplayResult();
+                }
+                break;
+            case GameState.LevelUp:
+                if (!chooseUpgrade)
+                {
+                    chooseUpgrade = true;
+                    Time.timeScale = 0f;
+                    levelUpScene.SetActive(true);
                 }
                 break;
             default:
@@ -123,10 +145,12 @@ public class GameManager : MonoBehaviour
     {
         pauseScene.SetActive(false);
         gameOverScene.SetActive(false);
+        levelUpScene.SetActive(false);
     }
 
     public void GameOver()
     {
+        timeSurvivedDisplay.text = timeDisplay.text;
         ChangeState(GameState.GameOver);
     }
 
@@ -135,9 +159,72 @@ public class GameManager : MonoBehaviour
         gameOverScene.SetActive(true);
     }
 
-    public void AssignChoosenCharacter (PlayerScriptableObject playerScriptableObject)
+    public void AssignChoosenCharacter(PlayerScriptableObject playerScriptableObject)
     {
         choosenChraacterImage.sprite = playerScriptableObject.Icon;
         choosenCharcterName.text = playerScriptableObject.CharacterName;
+    }
+
+    public void ChooseSkillAssign(List<Sprite> choseSkillData)
+    {
+        if (choseSkillData.Count > chooseSkill.Count)
+        {
+            return;
+        }
+        for (int i = 0; i < chooseSkill.Count; i++)
+        {
+            if (choseSkillData[i])
+            {
+                chooseSkill[i].sprite = choseSkillData[i];
+                chooseSkill[i].enabled = true;
+            }
+            else
+            {
+                chooseSkill[i].enabled = false;
+            }
+        }
+    }
+
+    void UpdateStopWatch()
+    {
+        StopWatchTime += Time.deltaTime; // update the time
+
+        UpdateTimeDisplay();
+
+        if (StopWatchTime >= timeLimit)
+        {
+            GameOver();
+        }
+    }
+
+    void UpdateTimeDisplay()
+    {
+        int minutes = Mathf.FloorToInt(StopWatchTime / 60f);
+        int seconds = Mathf.FloorToInt(StopWatchTime % 60f);
+        timeDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    public void StartLevelUp()
+    {
+        ChangeState(GameState.LevelUp);
+        // Find the UIManager in the scene
+        UIManager uiManager = FindObjectOfType<UIManager>();
+        if (uiManager != null)
+        {
+            // Call the method directly
+            uiManager.RemoveAndApplyUpgradeOption();
+        }
+        else
+        {
+            Debug.LogError("UIManager not found in the scene.");
+        }
+    }
+
+    public void EndLevelUp()
+    {
+        chooseUpgrade = false;
+        Time.timeScale = 1f;
+        levelUpScene.SetActive(false);
+        ChangeState(GameState.Ganeplay);
     }
 }

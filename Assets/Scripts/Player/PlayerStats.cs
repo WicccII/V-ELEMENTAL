@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using Image = UnityEngine.UI.Image;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -116,6 +118,7 @@ public class PlayerStats : MonoBehaviour
     }
     #endregion
 
+    public Image healthBar;
     //inventory manager
     InventoryManager inventory;
     int skillIndex;
@@ -154,13 +157,13 @@ public class PlayerStats : MonoBehaviour
         currentCharacter = playerData.Character;
 
         levelReach = GetExperienceCap();
+
+        //spawn StartingWeapon
+        SpawnWeapon(playerData.StartingWeapon);
     }
 
     void Start()
     {
-        //spawn StartingWeapon
-        SpawnWeapon(playerData.StartingWeapon);
-
         //set stats
         GameManager.Instance.currentHealthDisplay.text = "Health :" + currentHealth;
         GameManager.Instance.currentSpeedDisplay.text = "Speed :" + currentSpeed;
@@ -189,6 +192,13 @@ public class PlayerStats : MonoBehaviour
         }
         recover();
         levelReach = GetExperienceCap();
+        UpdateHealthBar();
+    }
+
+    void LateUpdate()
+    {
+        //AssignChoseSkillUI
+        GameManager.Instance.ChooseSkillAssign(inventory.skillUI);
     }
 
     public void IncreaseExperience(int amount)
@@ -203,6 +213,7 @@ public class PlayerStats : MonoBehaviour
         {
             experience -= GetExperienceCap(); // Deduct the current cap from experience
             level++; // Level up
+            GameManager.Instance.StartLevelUp();
         }
     }
 
@@ -226,9 +237,14 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    void UpdateHealthBar()
+    {
+        healthBar.fillAmount = CurrentHealth / playerData.MaxHealth;
+    }
+
     void Kill()
     {
-        if(!GameManager.Instance.isGameOver)
+        if (!GameManager.Instance.isGameOver)
         {
             GameManager.Instance.GameOver();
         }

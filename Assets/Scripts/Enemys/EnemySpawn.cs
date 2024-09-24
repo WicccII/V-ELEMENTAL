@@ -31,6 +31,8 @@ public class EnemySpawn : MonoBehaviour
     float spawnTimer;
     public float waveInterval;
 
+    bool isActiveWave = false;
+    public bool isReachedEnemy = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +43,7 @@ public class EnemySpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentWaveCount < waves.Count && waves[currentWaveCount].spawnCount == 0)
+        if ((currentWaveCount < waves.Count) && !isActiveWave && isReachedEnemy)
         {
             StartCoroutine(BeginNextWave());
         }
@@ -55,9 +57,12 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator BeginNextWave()
     {
+        isActiveWave = true;
         yield return new WaitForSeconds(waveInterval);
         if (currentWaveCount < waves.Count - 1)
         {
+            isActiveWave = false;
+            isReachedEnemy = false;
             currentWaveCount++;
             CaculateWaveQuota();
         }
@@ -92,6 +97,10 @@ public class EnemySpawn : MonoBehaviour
                     Instantiate(enemyGroup.enemyPrefab, spawnPosition, Quaternion.identity);
                     enemyGroup.spawnCount++;
                     waves[currentWaveCount].spawnCount++;
+                }
+                if (enemyGroup.spawnCount == enemyGroup.enemyCount)
+                {
+                    isReachedEnemy = true;
                 }
             }
         }
