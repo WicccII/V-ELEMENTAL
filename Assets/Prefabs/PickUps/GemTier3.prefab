@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -6564995312788952448}
   - component: {fileID: -4861014305142673723}
   - component: {fileID: -6043362770361192030}
+  - component: {fileID: -2243130489717387221}
   m_Layer: 0
   m_Name: GemTier3
   m_TagString: Untagged
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e9a9d7234ad7224a9cf8a8710b463a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasBeenColletd: 0
   expGrandeted: 425
 --- !u!58 &-4861014305142673723
 CircleCollider2D:
@@ -162,3 +164,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-2243130489717387221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836137733070366849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20b088c6ad66e954b948f31d26d7c08f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequency: 3
+  magnitude: 0.1
+  direction: {x: 0, y: 1, z: 0}
