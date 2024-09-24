@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public Text choosenCharcterName;
     public Text timeSurvivedDisplay;
     public List<Image> chooseSkill = new List<Image>(6);
+    public List<Image> chooseItem = new List<Image>(6);
 
     [Header("State")]
     public GameState currentState;
@@ -181,6 +182,26 @@ public class GameManager : MonoBehaviour
             else
             {
                 chooseSkill[i].enabled = false;
+            }
+        }
+    }
+
+    public void ChooseItemAssign(List<Sprite> choseItemData)
+    {
+        if (choseItemData.Count > chooseItem.Count)
+        {
+            return;
+        }
+        for (int i = 0; i < chooseItem.Count; i++)
+        {
+            if (choseItemData[i])
+            {
+                chooseItem[i].sprite = choseItemData[i];
+                chooseItem[i].enabled = true;
+            }
+            else
+            {
+                chooseItem[i].enabled = false;
             }
         }
     }

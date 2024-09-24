@@ -16,5 +16,11 @@ public class PassiveItemScriptableObject : ScriptableObject
     public GameObject NextLevelPrefab { get => nextLevelPrefab; private set => nextLevelPrefab = value; }
     [SerializeField]
     Sprite icon;//Modifile in editor only 
-    public Sprite Icon {get => icon; private set => icon = value;}
+    public Sprite Icon { get => icon; private set => icon = value; }
+    [SerializeField]
+    new string name;//Modifile in editor only 
+    public string Name { get => name; private set => Name = name; }
+    [SerializeField]
+    string description;//Modifile in editor only 
+    public string Description { get => description; private set => Description = description; }
 }

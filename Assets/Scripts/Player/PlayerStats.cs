@@ -199,6 +199,7 @@ public class PlayerStats : MonoBehaviour
     {
         //AssignChoseSkillUI
         GameManager.Instance.ChooseSkillAssign(inventory.skillUI);
+        GameManager.Instance.ChooseItemAssign(inventory.itemUI);
     }
 
     public void IncreaseExperience(int amount)
@@ -290,7 +291,7 @@ public class PlayerStats : MonoBehaviour
 
     public void SpawnItem(GameObject item)
     {
-        if (skillIndex >= inventory.itemSlots.Count - 1)
+        if (itemIndex >= inventory.itemSlots.Count - 1)
         {
             Debug.LogWarning("Inventory Full !!!");
             return;

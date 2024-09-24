@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     public Image expbar;
 
     public List<Image> SkillUIIcon = new List<Image>(6);
+    public List<Image> itemUIcon = new List<Image>(6);
 
     [System.Serializable]
     public class UpgradeUI
@@ -34,12 +35,14 @@ public class UIManager : MonoBehaviour
         playerStatsSript = FindObjectOfType<PlayerStats>();
         inventory = FindObjectOfType<InventoryManager>();
         // After spawning the player, initialize skills and update UI
-        AddSkillUI();
+        AddSkill();
+        AddItemUI();
     }
 
     void Update()
     {
-        AddSkillUI();
+        AddSkill();
+        AddItemUI();
         UpdateEXPbar();
     }
 
@@ -48,7 +51,7 @@ public class UIManager : MonoBehaviour
         expbar.fillAmount = playerStatsSript.experience / playerStatsSript.levelReach;
     }
 
-    public void AddSkillUI()
+    public void AddSkill()
     {
         if (inventory.skillUI.Count > SkillUIIcon.Count)
         {
@@ -68,19 +71,51 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    void ApplyUpgradeOption()
+    public void AddItemUI()
     {
-        List<SkillUpgrade> availableSkillUpgradesOption = new List<SkillUpgrade>(inventory.skillUpgradesOption);
-        foreach (var upgrade in upgradeUIOption)
+        if (inventory.itemUI.Count > itemUIcon.Count)
         {
-            int upgradeType;
-            if (availableSkillUpgradesOption.Count == 0)
+            return;
+        }
+        for (int i = 0; i < itemUIcon.Count; i++)
+        {
+            if (inventory.itemUI[i])
             {
-                return;
+                itemUIcon[i].sprite = inventory.itemUI[i];
+                itemUIcon[i].enabled = true;
             }
             else
             {
-                upgradeType = Random.Range(1, 1);
+                itemUIcon[i].enabled = false;
+            }
+        }
+    }
+
+    void ApplyUpgradeOption()
+    {
+        List<SkillUpgrade> availableSkillUpgradesOption = new List<SkillUpgrade>(inventory.skillUpgradesOption);
+        List<ItemUpgrade> availableItemUpgradesOption = new List<ItemUpgrade>(inventory.itemUpgradesOption);
+        foreach (var upgrade in upgradeUIOption)
+        {
+            // Debug.Log("Skill: " + availableSkillUpgradesOption.Count + " Item: " + availableItemUpgradesOption.Count);
+            if (availableSkillUpgradesOption.Count == 0 && availableItemUpgradesOption.Count == 0)
+            {
+                GameManager.Instance.EndLevelUp();
+                return;
+            }
+
+            int upgradeType;
+            if (availableSkillUpgradesOption.Count == 0)
+            {
+                upgradeType = 2;
+            }
+            else if (availableItemUpgradesOption.Count == 0)
+            {
+                upgradeType = 1;
+            }
+            else
+            {
+                upgradeType = Random.Range(1, 3);
             }
 
             if (upgradeType == 1)
@@ -121,6 +156,47 @@ public class UIManager : MonoBehaviour
                         upgrade.upgradeIcon.sprite = chosenSkillUpgrade.skillData.Icon;
                         upgrade.upgradeName.text = chosenSkillUpgrade.skillData.Name;
                         upgrade.ugradeDescription.text = chosenSkillUpgrade.skillData.Description;
+                    }
+                }
+            }
+            else if (upgradeType == 2)
+            {
+                ItemUpgrade chosenItemUpgrade = availableItemUpgradesOption[Random.Range(0, availableItemUpgradesOption.Count)];
+                availableItemUpgradesOption.Remove(chosenItemUpgrade);
+                if (chosenItemUpgrade != null)
+                {
+                    enableUpgradeUI(upgrade);
+                    bool newItem = false;
+                    for (int i = 0; i < inventory.itemSlots.Count; i++)
+                    {
+                        if (inventory.itemSlots[i] != null && inventory.itemSlots[i].passiveItemData == chosenItemUpgrade.itemData)
+                        {
+                            newItem = false;
+                            if (!newItem)
+                            {
+                                if (!chosenItemUpgrade.itemData.NextLevelPrefab)
+                                {
+                                    disableUpgradeUI(upgrade);
+                                    break;
+                                }
+                                upgrade.upgradeButton.onClick.AddListener(() => inventory.LevelUpItem(i, chosenItemUpgrade.itemUpgradeIndex));
+                                upgrade.upgradeIcon.sprite = chosenItemUpgrade.itemData.NextLevelPrefab.GetComponent<PassiveItem>().passiveItemData.Icon;
+                                upgrade.upgradeName.text = chosenItemUpgrade.itemData.NextLevelPrefab.GetComponent<PassiveItem>().passiveItemData.Name;
+                                upgrade.ugradeDescription.text = chosenItemUpgrade.itemData.NextLevelPrefab.GetComponent<PassiveItem>().passiveItemData.Description;
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            newItem = true;
+                        }
+                    }
+                    if (newItem)
+                    {
+                        upgrade.upgradeButton.onClick.AddListener(() => player.GetComponent<PlayerStats>().SpawnItem(chosenItemUpgrade.initialItem));
+                        upgrade.upgradeIcon.sprite = chosenItemUpgrade.itemData.Icon;
+                        upgrade.upgradeName.text = chosenItemUpgrade.itemData.Name;
+                        upgrade.ugradeDescription.text = chosenItemUpgrade.itemData.Description;
                     }
                 }
             }

@@ -418,6 +418,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   itemLevels: 000000000000000000000000000000000000000000000000
+  itemUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   skillUpgradesOption:
   - skillUpgradeIndex: 0
     initialSkill: {fileID: 3983153425984928852, guid: fdae9e6330220ce4cb4968f60dc449de, type: 3}
@@ -425,6 +432,13 @@ MonoBehaviour:
   - skillUpgradeIndex: 1
     initialSkill: {fileID: 8160271337813456415, guid: 4820a98e5ab973342acf8f28ccda66ed, type: 3}
     skillData: {fileID: 11400000, guid: fba2996d92012524a8bf7ff53f972860, type: 2}
+  itemUpgradesOption:
+  - itemUpgradeIndex: 0
+    initialItem: {fileID: 7315688359018095375, guid: 502c5e3f9d99caa428193233ee705c30, type: 3}
+    itemData: {fileID: 11400000, guid: e7565aa77136b3c41b17ddbee74b6a71, type: 2}
+  - itemUpgradeIndex: 1
+    initialItem: {fileID: 560080661008462675, guid: d26a71c2d7e952342ada93084eb2dc80, type: 3}
+    itemData: {fileID: 11400000, guid: 9865dea7b579bb34da7da9f4eeca9017, type: 2}
 --- !u!1 &5152640492216795577
 GameObject:
   m_ObjectHideFlags: 0

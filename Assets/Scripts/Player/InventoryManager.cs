@@ -12,6 +12,7 @@ public class InventoryManager : MonoBehaviour
     public List<Sprite> skillUI = new List<Sprite>(6);
     public List<PassiveItem> itemSlots = new List<PassiveItem>(6);
     public int[] itemLevels = new int[6];
+    public List<Sprite> itemUI = new List<Sprite>(6);
 
     [System.Serializable]
     public class SkillUpgrade
@@ -20,9 +21,19 @@ public class InventoryManager : MonoBehaviour
         public GameObject initialSkill;
         public WeaponScriptableObject skillData;
     }
-    public List<SkillUpgrade> skillUpgradesOption = new List<SkillUpgrade>();
 
-    void Awake ()
+    [System.Serializable]
+    public class ItemUpgrade
+    {
+        public int itemUpgradeIndex;
+        public GameObject initialItem;
+        public PassiveItemScriptableObject itemData;
+    }
+    [Header("Upgrade Options")]
+    public List<SkillUpgrade> skillUpgradesOption = new List<SkillUpgrade>();
+    public List<ItemUpgrade> itemUpgradesOption = new List<ItemUpgrade>();
+
+    void Awake()
     {
     }
 
@@ -42,6 +53,12 @@ public class InventoryManager : MonoBehaviour
     {
         itemSlots[indexSlot] = item;
         itemLevels[indexSlot] = item.passiveItemData.Level;
+        itemUI[indexSlot] = item.passiveItemData.Icon;
+
+        if (GameManager.Instance != null && GameManager.Instance.chooseUpgrade)
+        {
+            GameManager.Instance.EndLevelUp();
+        }
     }
 
     public void LevelUpSkill(int indexSlot, int skillUpgradeIndex)
@@ -63,7 +80,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void LevelUpItem(int indexSlot)
+    public void LevelUpItem(int indexSlot, int itemUpgradeIndex)
     {
         if (itemSlots.Count > indexSlot)
         {
@@ -72,6 +89,7 @@ public class InventoryManager : MonoBehaviour
             upgrdeItem.transform.SetParent(transform);
             AddItem(indexSlot, upgrdeItem.GetComponent<PassiveItem>());
             Destroy(item.gameObject);
+            itemUpgradesOption[itemUpgradeIndex].itemData = upgrdeItem.GetComponent<PassiveItem>().passiveItemData;
             skillLevels[indexSlot] = upgrdeItem.GetComponent<PassiveItem>().passiveItemData.Level;
         }
     }
