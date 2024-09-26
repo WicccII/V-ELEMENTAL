@@ -536,6 +536,8 @@ MonoBehaviour:
   - itemUpgradeIndex: 1
     initialItem: {fileID: 560080661008462675, guid: d26a71c2d7e952342ada93084eb2dc80, type: 3}
     itemData: {fileID: 11400000, guid: 9865dea7b579bb34da7da9f4eeca9017, type: 2}
+  skillEvolutions:
+  - {fileID: 11400000, guid: 250c04de0aa337f4f8260a3c66418bb9, type: 2}
 --- !u!1 &7874446780471109239
 GameObject:
   m_ObjectHideFlags: 0

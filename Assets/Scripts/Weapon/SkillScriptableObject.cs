@@ -36,6 +36,10 @@ public class SkillScriptableObject : ScriptableObject
     [SerializeField]
     string description;//Modifile in editor only 
     public string Description { get => description; private set => Description = description; }
+        [SerializeField]
+    int toRemove;//Modifile in editor only 
+    public int ToRemove { get => toRemove; private set => ToRemove = toRemove; }
+
 
 
 

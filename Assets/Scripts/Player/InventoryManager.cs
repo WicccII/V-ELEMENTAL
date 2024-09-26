@@ -29,10 +29,14 @@ public class InventoryManager : MonoBehaviour
         public GameObject initialItem;
         public PassiveItemScriptableObject itemData;
     }
+
     [Header("Upgrade Options")]
     public List<SkillUpgrade> skillUpgradesOption = new List<SkillUpgrade>();
     public List<ItemUpgrade> itemUpgradesOption = new List<ItemUpgrade>();
 
+
+    [Header("Evolution Skill")]
+    public List<SkillEvolutionBluePrint> skillEvolutions = new List<SkillEvolutionBluePrint>();
     void Awake()
     {
     }
@@ -91,6 +95,68 @@ public class InventoryManager : MonoBehaviour
             Destroy(item.gameObject);
             itemUpgradesOption[itemUpgradeIndex].itemData = upgrdeItem.GetComponent<PassiveItem>().passiveItemData;
             skillLevels[indexSlot] = upgrdeItem.GetComponent<PassiveItem>().passiveItemData.Level;
+        }
+    }
+
+    public List<SkillEvolutionBluePrint> GetPossibleSkillEvolution()
+    {
+        List<SkillEvolutionBluePrint> possibleSkillEvolution = new List<SkillEvolutionBluePrint>();
+        foreach (var skill in skillSlots)
+        {
+            if (skill != null)
+            {
+                foreach (var item in itemSlots)
+                {
+                    if (item != null)
+                    {
+                        foreach (var evolution in skillEvolutions)
+                        {
+                            if (skill.skillData.Level >= evolution.baseSkillDate.Level && item.passiveItemData.Level >= evolution.catalystPassiveItemData.Level)
+                            {
+                                possibleSkillEvolution.Add(evolution);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return possibleSkillEvolution;
+    }
+
+    public void EvoluteSkill(SkillEvolutionBluePrint evolutionBluePrint)
+    {
+        for (int skillSlot = 0; skillSlot < skillSlots.Count; skillSlot++)
+        {
+            SkillController skill = skillSlots[skillSlot];
+            if(!skill)
+            {
+                continue;
+            }
+            for (int itemSlot = 0; itemSlot < itemSlots.Count; itemSlot++)
+            {
+                PassiveItem item = itemSlots[itemSlot];
+                if(!item)
+                {
+                    continue;
+                }
+                if (skill && item && skill.skillData.Level >= evolutionBluePrint.baseSkillDate.Level && item.passiveItemData.Level >= evolutionBluePrint.catalystPassiveItemData.Level)
+                {
+                    GameObject evolutionSkill = Instantiate(evolutionBluePrint.evoluteSkill, transform.position, Quaternion.identity);
+                    SkillController evolutionSkillController = evolutionSkill.GetComponent<SkillController>();
+
+                    evolutionSkill.transform.SetParent(transform);
+                    AddSkill(skillSlot, evolutionSkillController);
+                    Destroy(skill.gameObject);
+
+                    skillLevels[skillSlot] = evolutionSkillController.skillData.Level;
+                    skillUI[skillSlot] = evolutionSkillController.skillData.Icon;
+                    skillUpgradesOption.RemoveAt(evolutionSkillController.skillData.ToRemove);
+
+                    Debug.Log("Evolution Done");
+
+                    return;
+                }
+            }
         }
     }
 }

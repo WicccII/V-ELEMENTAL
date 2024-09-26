@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     }
 
     public List<UpgradeUI> upgradeUIOption = new List<UpgradeUI>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -227,5 +228,4 @@ public class UIManager : MonoBehaviour
     {
         upgradeUI.upgradeName.transform.parent.gameObject.SetActive(true);
     }
-
 }
