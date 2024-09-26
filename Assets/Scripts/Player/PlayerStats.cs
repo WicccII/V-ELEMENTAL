@@ -193,13 +193,13 @@ public class PlayerStats : MonoBehaviour
         recover();
         levelReach = GetExperienceCap();
         UpdateHealthBar();
+        //AssignChoseSkillUI
+        GameManager.Instance.ChooseSkillAssign(inventory.skillUI);
+        GameManager.Instance.ChooseItemAssign(inventory.itemUI);
     }
 
     void LateUpdate()
     {
-        //AssignChoseSkillUI
-        GameManager.Instance.ChooseSkillAssign(inventory.skillUI);
-        GameManager.Instance.ChooseItemAssign(inventory.itemUI);
     }
 
     public void IncreaseExperience(int amount)
