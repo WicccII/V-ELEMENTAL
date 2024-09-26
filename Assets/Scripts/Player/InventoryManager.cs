@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    public List<WeaponController> skillSlots = new List<WeaponController>(6);
+    public List<SkillController> skillSlots = new List<SkillController>(6);
     public int[] skillLevels = new int[6];
     public List<Sprite> skillUI = new List<Sprite>(6);
     public List<PassiveItem> itemSlots = new List<PassiveItem>(6);
@@ -19,7 +19,7 @@ public class InventoryManager : MonoBehaviour
     {
         public int skillUpgradeIndex;
         public GameObject initialSkill;
-        public WeaponScriptableObject skillData;
+        public SkillScriptableObject skillData;
     }
 
     [System.Serializable]
@@ -37,11 +37,11 @@ public class InventoryManager : MonoBehaviour
     {
     }
 
-    public void AddSkill(int indexSlot, WeaponController skill)
+    public void AddSkill(int indexSlot, SkillController skill)
     {
         skillSlots[indexSlot] = skill;
-        skillLevels[indexSlot] = skill.weaponData.Level;
-        skillUI[indexSlot] = skill.weaponData.Icon;
+        skillLevels[indexSlot] = skill.skillData.Level;
+        skillUI[indexSlot] = skill.skillData.Icon;
 
         if (GameManager.Instance != null && GameManager.Instance.chooseUpgrade)
         {
@@ -65,18 +65,18 @@ public class InventoryManager : MonoBehaviour
     {
         if (skillSlots.Count > indexSlot)
         {
-            WeaponController skill = skillSlots[indexSlot];
-            if (!skill.weaponData.NextLevelPrefab)
+            SkillController skill = skillSlots[indexSlot];
+            if (!skill.skillData.NextLevelPrefab)
             {
                 Debug.LogError("No next level prefab : " + skill.name);
                 return;
             }
-            GameObject upgrdeSkill = Instantiate(skill.weaponData.NextLevelPrefab, transform.position, Quaternion.identity);
+            GameObject upgrdeSkill = Instantiate(skill.skillData.NextLevelPrefab, transform.position, Quaternion.identity);
             upgrdeSkill.transform.SetParent(transform);
-            AddSkill(indexSlot, upgrdeSkill.GetComponent<WeaponController>());
+            AddSkill(indexSlot, upgrdeSkill.GetComponent<SkillController>());
             Destroy(skill.gameObject);
-            skillUpgradesOption[skillUpgradeIndex].skillData = upgrdeSkill.GetComponent<WeaponController>().weaponData;
-            skillLevels[indexSlot] = upgrdeSkill.GetComponent<WeaponController>().weaponData.Level;
+            skillUpgradesOption[skillUpgradeIndex].skillData = upgrdeSkill.GetComponent<SkillController>().skillData;
+            skillLevels[indexSlot] = upgrdeSkill.GetComponent<SkillController>().skillData.Level;
         }
     }
 

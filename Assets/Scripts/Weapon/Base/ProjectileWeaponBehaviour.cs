@@ -7,7 +7,7 @@ using UnityEngine;
 public class ProjectileWeaponBehaviour : MonoBehaviour
 {
     protected Vector3 direction;
-    public WeaponScriptableObject weaponData;
+    public SkillScriptableObject weaponData;
     public float destroyTime;
 
     //current stats

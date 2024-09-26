@@ -285,7 +285,7 @@ public class PlayerStats : MonoBehaviour
         //startingWeapon
         GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
         spawnedWeapon.transform.SetParent(transform); //set child of player
-        inventory.AddSkill(skillIndex, spawnedWeapon.GetComponent<WeaponController>());
+        inventory.AddSkill(skillIndex, spawnedWeapon.GetComponent<SkillController>());
         skillIndex++;
     }
 

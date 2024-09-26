@@ -5,7 +5,7 @@ using UnityEngine;
 //base script of all meele weapon
 public class MeeleWeaponBehaviour : MonoBehaviour
 {
-    public WeaponScriptableObject weaponData;
+    public SkillScriptableObject weaponData;
     public float destroyTime;
     //current stats
     float currentCooldown;

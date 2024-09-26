@@ -128,7 +128,7 @@ public class UIManager : MonoBehaviour
                     bool newSkill = false;
                     for (int i = 0; i < inventory.skillSlots.Count; i++)
                     {
-                        if (inventory.skillSlots[i] != null && inventory.skillSlots[i].weaponData == chosenSkillUpgrade.skillData)
+                        if (inventory.skillSlots[i] != null && inventory.skillSlots[i].skillData == chosenSkillUpgrade.skillData)
                         {
                             newSkill = false;
                             if (!newSkill)
@@ -139,9 +139,9 @@ public class UIManager : MonoBehaviour
                                     break;
                                 }
                                 upgrade.upgradeButton.onClick.AddListener(() => inventory.LevelUpSkill(i, chosenSkillUpgrade.skillUpgradeIndex));
-                                upgrade.upgradeIcon.sprite = chosenSkillUpgrade.skillData.NextLevelPrefab.GetComponent<WeaponController>().weaponData.Icon;
-                                upgrade.upgradeName.text = chosenSkillUpgrade.skillData.NextLevelPrefab.GetComponent<WeaponController>().weaponData.Name;
-                                upgrade.ugradeDescription.text = chosenSkillUpgrade.skillData.NextLevelPrefab.GetComponent<WeaponController>().weaponData.Description;
+                                upgrade.upgradeIcon.sprite = chosenSkillUpgrade.skillData.NextLevelPrefab.GetComponent<SkillController>().skillData.Icon;
+                                upgrade.upgradeName.text = chosenSkillUpgrade.skillData.NextLevelPrefab.GetComponent<SkillController>().skillData.Name;
+                                upgrade.ugradeDescription.text = chosenSkillUpgrade.skillData.NextLevelPrefab.GetComponent<SkillController>().skillData.Description;
                             }
                             break;
                         }

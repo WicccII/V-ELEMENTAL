@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.Timeline;
 
 //base weapon stat of all weapon
-public class WeaponController : MonoBehaviour
+public class SkillController : MonoBehaviour
 {
-    [Header("Weapon stats")]
-    public WeaponScriptableObject weaponData;
+    [Header("Skill stats")]
+    public SkillScriptableObject skillData;
     float currentCooldown;
 
     protected PlayerMove playerMove;
@@ -15,7 +15,7 @@ public class WeaponController : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        currentCooldown = weaponData.CooldownDuration;
+        currentCooldown = skillData.CooldownDuration;
         playerMove = FindObjectOfType<PlayerMove>();
     }
 
@@ -31,6 +31,6 @@ public class WeaponController : MonoBehaviour
 
     protected virtual void Attack()
     {
-        currentCooldown = weaponData.CooldownDuration;
+        currentCooldown = skillData.CooldownDuration;
     }
 }
