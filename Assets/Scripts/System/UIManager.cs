@@ -94,13 +94,16 @@ public class UIManager : MonoBehaviour
 
     void ApplyUpgradeOption()
     {
+        int countAvailableUpgrade = 0;
         List<SkillUpgrade> availableSkillUpgradesOption = new List<SkillUpgrade>(inventory.skillUpgradesOption);
         List<ItemUpgrade> availableItemUpgradesOption = new List<ItemUpgrade>(inventory.itemUpgradesOption);
         foreach (var upgrade in upgradeUIOption)
         {
+            Debug.Log("Count: " + countAvailableUpgrade);
             // Debug.Log("Skill: " + availableSkillUpgradesOption.Count + " Item: " + availableItemUpgradesOption.Count);
-            if (availableSkillUpgradesOption.Count == 0 && availableItemUpgradesOption.Count == 0)
+            if (countAvailableUpgrade >= 3)
             {
+                GameManager.Instance.EndLevelUp();
                 return;
             }
 
@@ -134,7 +137,8 @@ public class UIManager : MonoBehaviour
                             if (!newSkill)
                             {
                                 if (!chosenSkillUpgrade.skillData.NextLevelPrefab)
-                                {
+                                {   
+                                    countAvailableUpgrade++;
                                     disableUpgradeUI(upgrade);
                                     break;
                                 }
@@ -176,6 +180,7 @@ public class UIManager : MonoBehaviour
                             {
                                 if (!chosenItemUpgrade.itemData.NextLevelPrefab)
                                 {
+                                    countAvailableUpgrade++;
                                     disableUpgradeUI(upgrade);
                                     break;
                                 }
