@@ -22,6 +22,9 @@ public class SkillScriptableObject : ScriptableObject
     float pierce;
     public float Pierce { get => pierce; private set => pierce = value; }
     [SerializeField]
+    float knockBackForce;
+    public float KnockBackForce { get => knockBackForce; private set => knockBackForce = value; }
+    [SerializeField]
     int level; //Modifile in editor only 
     public int Level { get => level; private set => level = value; }
     [SerializeField]
@@ -36,7 +39,7 @@ public class SkillScriptableObject : ScriptableObject
     [SerializeField]
     string description;//Modifile in editor only 
     public string Description { get => description; private set => Description = description; }
-        [SerializeField]
+    [SerializeField]
     int toRemove;//Modifile in editor only 
     public int ToRemove { get => toRemove; private set => ToRemove = toRemove; }
 

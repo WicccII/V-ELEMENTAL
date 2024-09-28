@@ -6,6 +6,7 @@ using UnityEngine;
 //base waepon behaviour in prefab
 public class ProjectileWeaponBehaviour : MonoBehaviour
 {
+    [HideInInspector]
     protected Vector3 direction;
     public SkillScriptableObject weaponData;
     public float destroyTime;
@@ -19,12 +20,15 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
     public float currentSpeed;
     [HideInInspector]
     public float currentPierce;
+    [HideInInspector]
+    public float currentKnockBackForce;
     void Awake()
     {
         currentCooldown = weaponData.CooldownDuration;
         currentDamage = weaponData.Damage;
         currentSpeed = weaponData.Speed;
         currentPierce = weaponData.Pierce;
+        currentKnockBackForce = weaponData.KnockBackForce;
     }
     // Start is called before the first frame update
     protected virtual void Start()
@@ -92,6 +96,7 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
+            enemyStats.GetComponent<Rigidbody2D>().AddForce(direction * currentKnockBackForce , ForceMode2D.Impulse);
             enemyStats.TakeDamage(GetCurrentDamage());
             ReducePierce();
         }
