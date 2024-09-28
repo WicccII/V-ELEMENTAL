@@ -150,8 +150,9 @@ public class InventoryManager : MonoBehaviour
 
                     skillLevels[skillSlot] = evolutionSkillController.skillData.Level;
                     skillUI[skillSlot] = evolutionSkillController.skillData.Icon;
-                    skillUpgradesOption.RemoveAt(evolutionSkillController.skillData.ToRemove);
-
+                    skillUpgradesOption[evolutionSkillController.skillData.ToRemove].initialSkill = evolutionSkillController.skillData.Prefab;
+                    skillUpgradesOption[evolutionSkillController.skillData.ToRemove].skillData = evolutionSkillController.skillData;
+                    
                     Debug.Log("Evolution Done");
 
                     return;

@@ -101,7 +101,6 @@ public class UIManager : MonoBehaviour
             // Debug.Log("Skill: " + availableSkillUpgradesOption.Count + " Item: " + availableItemUpgradesOption.Count);
             if (availableSkillUpgradesOption.Count == 0 && availableItemUpgradesOption.Count == 0)
             {
-                GameManager.Instance.EndLevelUp();
                 return;
             }
 

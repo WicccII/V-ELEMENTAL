@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c234c1f61b6c5424aac0293506184385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  batMove: {fileID: 0}
   enemyData: {fileID: 11400000, guid: 1082abd6eb41ce04e8fb500d290b1637, type: 2}
   currentHealth: 0
 --- !u!114 &-245025170810143019
@@ -232,7 +233,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
