@@ -14,7 +14,7 @@ public class Chest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,11 +28,14 @@ public class Chest : MonoBehaviour
 
     public void OpenChest()
     {
-        if (inventoryManager.GetPossibleSkillEvolution().Count < 0)
+        if (inventoryManager.GetPossibleSkillEvolution().Count <= 0)
         {
-            Debug.Log("no available evolve skill !!!");
+            GameManager.Instance.StartLevelUp();
         }
-        SkillEvolutionBluePrint skillEvolutionBluePrint = inventoryManager.GetPossibleSkillEvolution()[Random.Range(0, inventoryManager.GetPossibleSkillEvolution().Count)];
-        inventoryManager.EvoluteSkill(skillEvolutionBluePrint);
+        else
+        {
+            SkillEvolutionBluePrint skillEvolutionBluePrint = inventoryManager.GetPossibleSkillEvolution()[Random.Range(0, inventoryManager.GetPossibleSkillEvolution().Count)];
+            inventoryManager.EvoluteSkill(skillEvolutionBluePrint);
+        }
     }
 }

@@ -59,7 +59,6 @@ public class MeeleWeaponBehaviour : MonoBehaviour
         {
             EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
             enemyStats.TakeDamage(GetCurrentDamage());
-            Debug.Log("take damage");
         }
         else if (collision.CompareTag("Prop"))
         {

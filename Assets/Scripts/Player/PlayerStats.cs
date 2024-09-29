@@ -144,7 +144,10 @@ public class PlayerStats : MonoBehaviour
     void Awake()
     {
         //Get charater choosing in menu
-        playerData = CharacterSelecter.GetCharacter();
+        if (playerData == null)
+        {
+            playerData = CharacterSelecter.GetCharacter();
+        }
 
         inventory = FindObjectOfType<InventoryManager>();
 
@@ -212,9 +215,9 @@ public class PlayerStats : MonoBehaviour
     {
         while (experience >= GetExperienceCap()) // Check for level up
         {
+            GameManager.Instance.StartLevelUp();
             experience -= GetExperienceCap(); // Deduct the current cap from experience
             level++; // Level up
-            GameManager.Instance.StartLevelUp();
         }
     }
 

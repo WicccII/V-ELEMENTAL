@@ -32,7 +32,7 @@ public class EnemySpawn : MonoBehaviour
     public float waveInterval;
 
     bool isActiveWave = false;
-    public bool isReachedEnemy = false;
+    bool isReachedEnemy = false;
     // Start is called before the first frame update
     void Start()
     {

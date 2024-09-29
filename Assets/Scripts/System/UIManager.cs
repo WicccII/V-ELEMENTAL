@@ -99,7 +99,6 @@ public class UIManager : MonoBehaviour
         List<ItemUpgrade> availableItemUpgradesOption = new List<ItemUpgrade>(inventory.itemUpgradesOption);
         foreach (var upgrade in upgradeUIOption)
         {
-            Debug.Log("Count: " + countAvailableUpgrade);
             // Debug.Log("Skill: " + availableSkillUpgradesOption.Count + " Item: " + availableItemUpgradesOption.Count);
             if (countAvailableUpgrade >= 3)
             {

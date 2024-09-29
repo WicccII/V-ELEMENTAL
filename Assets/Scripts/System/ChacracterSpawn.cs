@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,11 @@ public class ChacracterSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        if (!CharacterSelecter.instance)
+        {
+            return;
+        }
+
         player = CharacterSelecter.GetCharacter().Character;
 
         Instantiate(player, transform.position, Quaternion.identity);

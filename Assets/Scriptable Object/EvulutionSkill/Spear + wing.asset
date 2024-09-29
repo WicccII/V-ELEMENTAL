@@ -17,9 +17,10 @@ MonoBehaviour:
   speed: 15
   cooldownDuration: 1
   pierce: 4
-  level: 0
+  knockBackForce: 5
+  level: 10
   nextLevelPrefab: {fileID: 0}
   icon: {fileID: -992532302, guid: ecb77c5f91c5a714fa2bbae1d62d4eb8, type: 3}
-  name: Black Spear
+  name: Black wind Spear
   description: Evoulute Spear
   toRemove: 0

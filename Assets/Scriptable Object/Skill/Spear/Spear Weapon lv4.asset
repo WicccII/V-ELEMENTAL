@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e729c6819aec04d93a158b098fe7f8, type: 3}
+  m_Name: Spear Weapon lv4
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 805613217050418994, guid: bee2f2fdc1408604b84812a4cbfd23fa, type: 3}
+  damage: 8
+  speed: 14
+  cooldownDuration: 1.5
+  pierce: 3
+  knockBackForce: 5
+  level: 4
+  nextLevelPrefab: {fileID: 3983153425984928852, guid: 2e46438e617b12f48aae5978d924256a, type: 3}
+  icon: {fileID: -703829107, guid: ecb77c5f91c5a714fa2bbae1d62d4eb8, type: 3}
+  name: spear lv4
+  description: +2 spd; + 1 spear
+  toRemove: 0

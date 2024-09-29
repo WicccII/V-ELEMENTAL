@@ -1690,7 +1690,7 @@ TextureImporter:
         serializedVersion: 2
         x: 67
         y: 67
-        width: 25
+        width: 26
         height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1701,27 +1701,6 @@ TextureImporter:
       bones: []
       spriteID: 76738649c9a86d842bc3664c4b7ee824
       internalID: -331206655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pixelarmory_79
-      rect:
-        serializedVersion: 2
-        x: 89
-        y: 85
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 164025281c8ab3b44bef7b29e91e91e2
-      internalID: 1754226678
       vertices: []
       indices: 
       edges: []

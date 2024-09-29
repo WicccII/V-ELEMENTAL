@@ -100,11 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 77f7769d37736ff4b9e6ed07a936d56a, type: 2}
-  destroyTime: 4
+  destroyTime: 2.5
   currentCooldown: 0
   currentDamage: 0
   currentSpeed: 0
   currentPierce: 0
+  currentKnockBackForce: 0
 --- !u!60 &3931365637022674207
 PolygonCollider2D:
   m_ObjectHideFlags: 0
