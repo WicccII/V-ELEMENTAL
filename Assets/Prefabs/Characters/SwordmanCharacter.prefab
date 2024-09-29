@@ -304,9 +304,24 @@ MonoBehaviour:
   spawnWeapons: []
   level: 1
   experience: 0
-  baseCap: 100
-  experienceCapMultiplier: 1.2
-  levelReach: 0
+  expierienCap: 0
+  experienceReach: 0
+  levelRanges:
+  - startLevel: 1
+    endLevel: 6
+    experienceCap: 100
+  - startLevel: 7
+    endLevel: 10
+    experienceCap: 120
+  - startLevel: 11
+    endLevel: 20
+    experienceCap: 150
+  - startLevel: 21
+    endLevel: 30
+    experienceCap: 160
+  - startLevel: 31
+    endLevel: 31
+    experienceCap: 1000
   invisibilityDuration: 1
 --- !u!114 &3915751938379423220
 MonoBehaviour:

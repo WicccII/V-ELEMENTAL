@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
 
     void UpdateEXPbar()
     {
-        expbar.fillAmount = playerStatsSript.experience / playerStatsSript.levelReach;
+        expbar.fillAmount = (float)playerStatsSript.experience/playerStatsSript.expierienCap;
     }
 
     public void AddSkill()
@@ -136,7 +136,7 @@ public class UIManager : MonoBehaviour
                             if (!newSkill)
                             {
                                 if (!chosenSkillUpgrade.skillData.NextLevelPrefab)
-                                {   
+                                {
                                     countAvailableUpgrade++;
                                     disableUpgradeUI(upgrade);
                                     break;

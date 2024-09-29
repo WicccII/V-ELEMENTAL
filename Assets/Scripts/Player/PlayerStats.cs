@@ -130,9 +130,17 @@ public class PlayerStats : MonoBehaviour
     [Header("Level/Experience")]
     public int level = 1;
     public int experience = 0;
-    public int baseCap = 100; // Initial experience cap for level 1
-    public float experienceCapMultiplier = 1.5f; // Growth multiplier for experience
-    public float levelReach; // Factor that increases with level
+    public int expierienCap; // Initial experience cap for level 1
+
+    [System.Serializable]
+    public class LevelRange
+    {
+        public int startLevel;
+        public int endLevel;
+        public int experienceCap;
+    }
+
+    public List<LevelRange> levelRanges; 
 
     //I-frame
     [Header("I-frame")]
@@ -159,10 +167,11 @@ public class PlayerStats : MonoBehaviour
         CurrentMagnet = playerData.Magnet;
         currentCharacter = playerData.Character;
 
-        levelReach = GetExperienceCap();
-
         //spawn StartingWeapon
         SpawnWeapon(playerData.StartingWeapon);
+
+        //experience
+        expierienCap = levelRanges[0].experienceCap;
     }
 
     void Start()
@@ -193,17 +202,17 @@ public class PlayerStats : MonoBehaviour
                 isInvincible = false;
             }
         }
+        //recover health by time
         recover();
-        levelReach = GetExperienceCap();
+
         UpdateHealthBar();
         //AssignChoseSkillUI
         GameManager.Instance.ChooseSkillAssign(inventory.skillUI);
         GameManager.Instance.ChooseItemAssign(inventory.itemUI);
+
+        
     }
 
-    void LateUpdate()
-    {
-    }
 
     public void IncreaseExperience(int amount)
     {
@@ -213,18 +222,23 @@ public class PlayerStats : MonoBehaviour
 
     public void LevelUpChecker()
     {
-        while (experience >= GetExperienceCap()) // Check for level up
+        while (experience >= expierienCap) // Check for level up
         {
             GameManager.Instance.StartLevelUp();
-            experience -= GetExperienceCap(); // Deduct the current cap from experience
+            experience -= expierienCap;
             level++; // Level up
-        }
-    }
 
-    public int GetExperienceCap()
-    {
-        // Calculate XP cap using exponential growth
-        return (int)(baseCap * Mathf.Pow(experienceCapMultiplier, level - 1));
+            int experienceIncrease = 0;
+            foreach (var levelRange in levelRanges)
+            {
+                if (level >= levelRange.startLevel && level <= levelRange.endLevel)
+                {
+                    experienceIncrease = levelRange.experienceCap;
+                    break;
+                }
+            }
+            expierienCap += experienceIncrease;
+        }
     }
 
     public void TakeDamage(float damage)

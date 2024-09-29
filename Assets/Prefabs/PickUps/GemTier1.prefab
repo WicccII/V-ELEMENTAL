@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBeenColletd: 0
-  expGrandeted: 100
+  expGrandeted: 60
 --- !u!58 &1926067119961938686
 CircleCollider2D:
   m_ObjectHideFlags: 0
