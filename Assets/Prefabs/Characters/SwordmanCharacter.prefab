@@ -305,20 +305,19 @@ MonoBehaviour:
   level: 1
   experience: 0
   expierienCap: 0
-  experienceReach: 0
   levelRanges:
   - startLevel: 1
     endLevel: 6
-    experienceCap: 100
+    experienceCap: 110
   - startLevel: 7
     endLevel: 10
-    experienceCap: 120
+    experienceCap: 130
   - startLevel: 11
     endLevel: 20
     experienceCap: 150
   - startLevel: 21
     endLevel: 30
-    experienceCap: 160
+    experienceCap: 180
   - startLevel: 31
     endLevel: 31
     experienceCap: 1000
@@ -372,6 +371,9 @@ MonoBehaviour:
   - skillUpgradeIndex: 1
     initialSkill: {fileID: 8160271337813456415, guid: 4820a98e5ab973342acf8f28ccda66ed, type: 3}
     skillData: {fileID: 11400000, guid: fba2996d92012524a8bf7ff53f972860, type: 2}
+  - skillUpgradeIndex: 2
+    initialSkill: {fileID: 3835084421753013299, guid: 54b53ccfbacb99741863d220725c4d43, type: 3}
+    skillData: {fileID: 11400000, guid: 19cbe84e5533d674995dc357c982f4c7, type: 2}
   itemUpgradesOption:
   - itemUpgradeIndex: 0
     initialItem: {fileID: 7315688359018095375, guid: 502c5e3f9d99caa428193233ee705c30, type: 3}

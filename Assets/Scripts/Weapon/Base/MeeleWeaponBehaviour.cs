@@ -7,8 +7,6 @@ public class MeeleWeaponBehaviour : MonoBehaviour
 {
     public SkillScriptableObject weaponData;
     public float destroyTime;
-    Vector3 direction;
-    ProjectileWeaponBehaviour projectileWeaponBehaviour;
     //current stats
     float currentCooldown;
     protected float currentDamage;
@@ -26,7 +24,7 @@ public class MeeleWeaponBehaviour : MonoBehaviour
     }
     public float GetCurrentDamage()
     {
-        return currentDamage *= FindObjectOfType<PlayerStats>().CurrentMight;
+        return currentDamage * FindObjectOfType<PlayerStats>().CurrentMight;
     }
     // Start is called before the first frame update
     protected virtual void Start()

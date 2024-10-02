@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 6664745826445550981, guid: 398d767923ca3c547878683b5775c907, type: 3}
   characterName: Soldier
   character: {fileID: 6321658903785512900, guid: f87f9255f24125e4e81d23ca74d7b3e7, type: 3}
-  startingWeapon: {fileID: 8160271337813456415, guid: 4820a98e5ab973342acf8f28ccda66ed, type: 3}
+  startingWeapon: {fileID: 3835084421753013299, guid: 54b53ccfbacb99741863d220725c4d43, type: 3}
   maxHealth: 125
   recovery: 3
   moveSpeed: 5

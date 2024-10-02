@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 5950583535568947136, guid: cdedf02684bf6d242a23e90d1762746f, type: 3}
   characterName: Swordsman
   character: {fileID: 240886378675612935, guid: 3d20ad36400737f4bb99806d1a297acf, type: 3}
-  startingWeapon: {fileID: 8160271337813456415, guid: 4820a98e5ab973342acf8f28ccda66ed, type: 3}
+  startingWeapon: {fileID: 3835084421753013299, guid: 54b53ccfbacb99741863d220725c4d43, type: 3}
   maxHealth: 90
   recovery: 5
   moveSpeed: 5
