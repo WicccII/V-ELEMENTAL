@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
 
     void UpdateEXPbar()
     {
-        expbar.fillAmount = (float)playerStatsSript.experience/playerStatsSript.expierienCap;
+        expbar.fillAmount = (float)playerStatsSript.experience / playerStatsSript.expierienCap;
     }
 
     public void AddSkill()
@@ -95,14 +95,24 @@ public class UIManager : MonoBehaviour
     void ApplyUpgradeOption()
     {
         int countAvailableUpgrade = 0;
+
         List<SkillUpgrade> availableSkillUpgradesOption = new List<SkillUpgrade>(inventory.skillUpgradesOption);
         List<ItemUpgrade> availableItemUpgradesOption = new List<ItemUpgrade>(inventory.itemUpgradesOption);
+
+        RemoveAllreadyMaxUgrades(availableSkillUpgradesOption, availableItemUpgradesOption);
+
         foreach (var upgrade in upgradeUIOption)
         {
-            Debug.Log("Skill: " + availableSkillUpgradesOption.Count + " Item: " + availableItemUpgradesOption.Count);
             if (countAvailableUpgrade >= 3)
             {
                 GameManager.Instance.EndLevelUp();
+                return;
+            }
+
+            Debug.Log("Skill: " + availableSkillUpgradesOption.Count + " Item: " + availableItemUpgradesOption.Count);
+            if (availableSkillUpgradesOption.Count == 0 && availableItemUpgradesOption.Count == 0)
+            {
+                countAvailableUpgrade++;
                 return;
             }
 
@@ -230,5 +240,53 @@ public class UIManager : MonoBehaviour
     void enableUpgradeUI(UpgradeUI upgradeUI)
     {
         upgradeUI.upgradeName.transform.parent.gameObject.SetActive(true);
+    }
+
+    void RemoveAllreadyMaxUgrades(List<SkillUpgrade> availableSkillUpgradesOption, List<ItemUpgrade> availableItemUpgradesOption)
+    {
+        List<SkillUpgrade> skillUpgradesToRemove = new List<SkillUpgrade>();
+
+        for (int i = 0; i < availableSkillUpgradesOption.Count; i++)
+        {
+            if (inventory.skillSlots != null)
+            {
+                for (int j = 0; j < inventory.skillSlots.Count; j++)
+                {
+                    if (inventory.skillSlots[j] != null &&
+                        availableSkillUpgradesOption[i].skillData.Prefab == inventory.skillSlots[j].skillData.Prefab && availableSkillUpgradesOption[i].skillData.NextLevelPrefab == null)
+                    {
+                        skillUpgradesToRemove.Add(availableSkillUpgradesOption[i]);
+                    }
+                }
+            }
+        }
+
+        // Xóa tất cả sau khi vòng lặp hoàn tất
+        foreach (var skillUpgrade in skillUpgradesToRemove)
+        {
+            availableSkillUpgradesOption.Remove(skillUpgrade);
+        }
+        List<ItemUpgrade> itemUpgradesToRemove = new List<ItemUpgrade>();
+
+        for (int i = 0; i < availableItemUpgradesOption.Count; i++)
+        {
+            if (inventory.itemSlots != null)
+            {
+                for (int j = 0; j < inventory.itemSlots.Count; j++)
+                {
+                    if (inventory.itemSlots[j] != null &&
+                        availableItemUpgradesOption[i].itemData.Prefab == inventory.itemSlots[j].passiveItemData.Prefab && availableItemUpgradesOption[i].itemData.NextLevelPrefab == null)
+                    {
+                        itemUpgradesToRemove.Add(availableItemUpgradesOption[i]);
+                    }
+                }
+            }
+        }
+
+        // Xóa tất cả sau khi vòng lặp hoàn tất
+        foreach (var itemUpgrade in itemUpgradesToRemove)
+        {
+            availableItemUpgradesOption.Remove(itemUpgrade);
+        }
     }
 }

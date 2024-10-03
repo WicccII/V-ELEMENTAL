@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a82bb38c65a4d94e9f124e4a4d8f65d, type: 3}
   m_Name: Wing lv2
   m_EditorClassIdentifier: 
+  prefab: {fileID: 7315688359018095375, guid: 559816a8157816f469c0f20a19fbaa97, type: 3}
   multiplier: 5
   level: 2
   nextLevelPrefab: {fileID: 7315688359018095375, guid: e4004a4c30ada064ab4eeca5f9187439, type: 3}
