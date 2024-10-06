@@ -13,8 +13,8 @@ public class UIManager : MonoBehaviour
 
     PlayerStats playerStatsSript;
 
+    [Header("UI")]
     public Image expbar;
-
     public List<Image> SkillUIIcon = new List<Image>(6);
     public List<Image> itemUIcon = new List<Image>(6);
 
@@ -94,11 +94,39 @@ public class UIManager : MonoBehaviour
 
     void ApplyUpgradeOption()
     {
+        int skillIndex = 0;
+        int itemIndex = 0;
+
         int countAvailableUpgrade = 0;
 
         List<SkillUpgrade> availableSkillUpgradesOption = new List<SkillUpgrade>(inventory.skillUpgradesOption);
         List<ItemUpgrade> availableItemUpgradesOption = new List<ItemUpgrade>(inventory.itemUpgradesOption);
 
+        for (int i = 0; i < 6; i++)
+        {
+            if (inventory.skillSlots[i] != null)
+            {
+                skillIndex++;
+            }
+            if (inventory.itemSlots[i] != null)
+            {
+                itemIndex++;
+            }
+        }
+
+        //check if skill slot is full or not and item is full or not
+        if (skillIndex > inventory.skillSlots.Count)
+        {
+            RemoveUpgradeOptionWhenSkillFull(availableSkillUpgradesOption, skillIndex);
+            Debug.Log("skill slot full");
+        }
+        if (itemIndex > inventory.itemSlots.Count)
+        {
+            RemoveUpgradeOptionWhenItemFull(availableItemUpgradesOption, itemIndex);
+            Debug.Log("item slot full");
+        }
+
+        //remove allready max upgrades skill and item
         RemoveAllreadyMaxUgrades(availableSkillUpgradesOption, availableItemUpgradesOption);
 
         foreach (var upgrade in upgradeUIOption)
@@ -109,7 +137,7 @@ public class UIManager : MonoBehaviour
                 return;
             }
 
-            Debug.Log("Skill: " + availableSkillUpgradesOption.Count + " Item: " + availableItemUpgradesOption.Count);
+            //Debug.Log("Skill: " + availableSkillUpgradesOption.Count + " Item: " + availableItemUpgradesOption.Count);
             if (availableSkillUpgradesOption.Count == 0 && availableItemUpgradesOption.Count == 0)
             {
                 countAvailableUpgrade++;
@@ -287,6 +315,70 @@ public class UIManager : MonoBehaviour
         foreach (var itemUpgrade in itemUpgradesToRemove)
         {
             availableItemUpgradesOption.Remove(itemUpgrade);
+        }
+    }
+
+    void RemoveUpgradeOptionWhenSkillFull(List<SkillUpgrade> avaiSkill, int skillIndex)
+    {
+        List<SkillUpgrade> skillUpgradesToRemove = new List<SkillUpgrade>();
+
+        for (int i = 0; i < avaiSkill.Count; i++)
+        {
+            int duplicateCount = 0;
+
+            if (inventory.skillSlots != null)
+            {
+                for (int j = 0; j < inventory.skillSlots.Count; j++)
+                {
+                    if (inventory.skillSlots[j] != null && inventory.skillSlots[j].skillData != avaiSkill[i].skillData)
+                    {
+                        duplicateCount++; // increase duplicateCount
+                    }
+                }
+            }
+
+            // If the number of duplicates exceeds the skillIndex, add the skillUpgrade to the list to be removed
+            if (duplicateCount >= skillIndex)
+            {
+                skillUpgradesToRemove.Add(avaiSkill[i]);
+            }
+        }
+
+        // Xóa các kỹ năng sau khi vòng lặp hoàn tất
+        foreach (var skillUpgrade in skillUpgradesToRemove)
+        {
+            avaiSkill.Remove(skillUpgrade);
+        }
+    }
+
+    void RemoveUpgradeOptionWhenItemFull(List<ItemUpgrade> avaiItem, int itemIndex)
+    {
+        List<ItemUpgrade> itemUpgradesToRemove = new List<ItemUpgrade>();
+
+        for (int i = 0; i < avaiItem.Count; i++)
+        {
+            int duplicateCount = 0;
+            if (inventory.itemSlots != null)
+            {
+                for (int j = 0; j < inventory.itemSlots.Count; j++)
+                {
+                    if (inventory.itemSlots[j] != null && inventory.itemSlots[j].passiveItemData != avaiItem[i].itemData)
+                    {
+                        duplicateCount++; // increase duplicateCount
+                    }
+                }
+            }
+
+            // If the number of duplicates exceeds the skillIndex, add the skillUpgrade to the list to be removed
+            if (duplicateCount >= itemIndex)
+            {
+                itemUpgradesToRemove.Add(avaiItem[i]);
+            }
+        }
+
+        foreach (var itemUpgrade in itemUpgradesToRemove)
+        {
+            avaiItem.Remove(itemUpgrade);
         }
     }
 }
