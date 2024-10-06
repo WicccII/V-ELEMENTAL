@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83e729c6819aec04d93a158b098fe7f8, type: 3}
-  m_Name: Blade lv2
+  m_Name: Cross lv1
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3835084421753013299, guid: 4ba166585b567754abd857b94f1cf742, type: 3}
-  damage: 6
+  prefab: {fileID: 0}
+  damage: 5
   speed: 0
-  cooldownDuration: 1.25
+  cooldownDuration: 2
   pierce: 0
   knockBackForce: 5
-  level: 2
-  nextLevelPrefab: {fileID: 3835084421753013299, guid: 743b232398fbeea4bb3ff23ff71ad4bd, type: 3}
-  icon: {fileID: 1477143120, guid: ecb77c5f91c5a714fa2bbae1d62d4eb8, type: 3}
-  name: Blazing Blade lv2
-  description: +1 damg; cd - 0.25s
-  toRemove: 2
+  level: 1
+  nextLevelPrefab: {fileID: 7230837270417449261, guid: 1cf008b050c21dc4ea165d6790e58e7b, type: 3}
+  icon: {fileID: 21300000, guid: 43edabd1c4163ee4a8fd8cd731f4a5ad, type: 3}
+  name: Holy Cross
+  description: New Skill
+  toRemove: 3

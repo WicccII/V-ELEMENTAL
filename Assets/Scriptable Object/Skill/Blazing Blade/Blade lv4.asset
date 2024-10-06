@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e729c6819aec04d93a158b098fe7f8, type: 3}
   m_Name: Blade lv4
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 3835084421753013299, guid: f81c1ec3f9ea6a24cbceef78594a7e18, type: 3}
   damage: 10
   speed: 0
   cooldownDuration: 1.25

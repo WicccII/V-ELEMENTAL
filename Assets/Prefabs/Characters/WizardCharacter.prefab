@@ -311,7 +311,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -443,6 +443,9 @@ MonoBehaviour:
   - skillUpgradeIndex: 2
     initialSkill: {fileID: 3835084421753013299, guid: 54b53ccfbacb99741863d220725c4d43, type: 3}
     skillData: {fileID: 11400000, guid: 19cbe84e5533d674995dc357c982f4c7, type: 2}
+  - skillUpgradeIndex: 3
+    initialSkill: {fileID: 7230837270417449261, guid: 6ef41f4b5e647e944ac9522db2871bc0, type: 3}
+    skillData: {fileID: 11400000, guid: 454d9d4ebc3edc148930cfa21a67b253, type: 2}
   itemUpgradesOption:
   - itemUpgradeIndex: 0
     initialItem: {fileID: 7315688359018095375, guid: 502c5e3f9d99caa428193233ee705c30, type: 3}

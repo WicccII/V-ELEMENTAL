@@ -123,6 +123,7 @@ public class PlayerStats : MonoBehaviour
     InventoryManager inventory;
     int skillIndex;
     int itemIndex;
+    UIManager ui;
 
     //spawn StartingWeapon
     public List<GameObject> spawnWeapons;
@@ -140,7 +141,7 @@ public class PlayerStats : MonoBehaviour
         public int experienceCap;
     }
 
-    public List<LevelRange> levelRanges; 
+    public List<LevelRange> levelRanges;
 
     //I-frame
     [Header("I-frame")]
@@ -158,6 +159,7 @@ public class PlayerStats : MonoBehaviour
         }
 
         inventory = FindObjectOfType<InventoryManager>();
+        ui = FindObjectOfType<UIManager>();
 
         CurrentHealth = playerData.MaxHealth;
         CurrentSpeed = playerData.MoveSpeed;
@@ -210,7 +212,7 @@ public class PlayerStats : MonoBehaviour
         GameManager.Instance.ChooseSkillAssign(inventory.skillUI);
         GameManager.Instance.ChooseItemAssign(inventory.itemUI);
 
-        
+
     }
 
 
@@ -292,15 +294,10 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void SpawnWeapon(GameObject weapon)
+    public void SpawnWeapon(GameObject Skill)
     {
-        if (skillIndex >= inventory.skillSlots.Count - 1)
-        {
-            Debug.LogWarning("Inventory Full !!!");
-            return;
-        }
         //startingWeapon
-        GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
+        GameObject spawnedWeapon = Instantiate(Skill, transform.position, Quaternion.identity);
         spawnedWeapon.transform.SetParent(transform); //set child of player
         inventory.AddSkill(skillIndex, spawnedWeapon.GetComponent<SkillController>());
         skillIndex++;
@@ -308,12 +305,6 @@ public class PlayerStats : MonoBehaviour
 
     public void SpawnItem(GameObject item)
     {
-        if (itemIndex >= inventory.itemSlots.Count - 1)
-        {
-            Debug.LogWarning("Inventory Full !!!");
-            return;
-        }
-        //startingWeapon
         GameObject spawnedItem = Instantiate(item, transform.position, Quaternion.identity);
         spawnedItem.transform.SetParent(transform); //set child of player
         inventory.AddItem(itemIndex, spawnedItem.GetComponent<PassiveItem>());
