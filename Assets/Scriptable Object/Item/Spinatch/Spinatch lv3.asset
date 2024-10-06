@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a82bb38c65a4d94e9f124e4a4d8f65d, type: 3}
-  m_Name: Spinatch
+  m_Name: Spinatch lv3
   m_EditorClassIdentifier: 
   prefab: {fileID: 560080661008462675, guid: d26a71c2d7e952342ada93084eb2dc80, type: 3}
   multiplier: 5
-  level: 1
-  nextLevelPrefab: {fileID: 560080661008462675, guid: 5d0e5442a2a16dd428c0719aa86e3bd2, type: 3}
+  level: 3
+  nextLevelPrefab: {fileID: 560080661008462675, guid: 0bac1b53b6bfcd34ca38fc5f810be29b, type: 3}
   icon: {fileID: 21300000, guid: 3e33ac804e180ba4bbfd893deed71e0e, type: 3}
-  name: Spinatch
+  name: Spinatch lv3
   description: 'New Item: Spinatch +10% mig'
