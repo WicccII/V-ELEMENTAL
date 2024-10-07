@@ -12,7 +12,7 @@ public class MeeleSkillBehaviour : SkillController
     float currentPierce;
     float currentKnockBackForce;
     Animator animator;
-    new Collider2D collider2D;
+    new public Collider2D collider2D;
     void Awake()
     {
         currentDamage = skillData.Damage;

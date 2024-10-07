@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
 
