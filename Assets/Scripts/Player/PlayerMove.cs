@@ -45,6 +45,10 @@ public class PlayerMove : MonoBehaviour
     }
     private void Move()
     {
-        myRigidbody2D.velocity = new Vector2(moveDirection.x * playerStats.currentSpeed, moveDirection.y * playerStats.currentSpeed);
+        if (GameManager.Instance.isGameOver)
+        {
+            return;
+        }
+        myRigidbody2D.velocity = new Vector2(moveDirection.x * playerStats.CurrentSpeed, moveDirection.y * playerStats.CurrentSpeed);
     }
 }

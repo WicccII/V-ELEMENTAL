@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
+    public BatMove batMove;
     public EnemyScriptableObject enemyData;
     [HideInInspector]
     public float currentHealth;
@@ -13,6 +15,7 @@ public class EnemyStats : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        batMove = GetComponent<BatMove>();
         currentHealth = enemyData.Health;
         currentSpeed = enemyData.Speed;
         currentDamage = enemyData.Damage;
@@ -21,10 +24,16 @@ public class EnemyStats : MonoBehaviour
     // Update is called once per frame
     public void TakeDamage(float damage)
     {
+        batMove.enabled = false;
+        new WaitForSeconds(1);
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
             kill();
+        }
+        else
+        {
+            batMove.enabled = true;
         }
     }
 

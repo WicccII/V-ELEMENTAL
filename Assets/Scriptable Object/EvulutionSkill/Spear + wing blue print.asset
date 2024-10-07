@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47cc2ccaac361c54dbaa57de40933315, type: 3}
+  m_Name: Spear + wing blue print
+  m_EditorClassIdentifier: 
+  baseSkillDate: {fileID: 11400000, guid: b09d5cb9878189d44ac880b4e61926bc, type: 2}
+  catalystPassiveItemData: {fileID: 11400000, guid: 6dce5b9da0b095442bd4e5cfc0803f9d, type: 2}
+  evoluteSkillData: {fileID: 11400000, guid: 77f7769d37736ff4b9e6ed07a936d56a, type: 2}
+  evoluteSkill: {fileID: 3983153425984928852, guid: b55211d9ef057a347a13e005765915cf, type: 3}

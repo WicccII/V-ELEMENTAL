@@ -1,24 +1,129 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using Image = UnityEngine.UI.Image;
 
 public class PlayerStats : MonoBehaviour
 {
+    //player
+    [Header("Player Stats")]
     public PlayerScriptableObject playerData;
-    [HideInInspector]
-    public float currentHealth;
-    [HideInInspector]
-    public float currentSpeed;
-    [HideInInspector]
-    public float currentMight;
-    [HideInInspector]
-    public float currentProjectileSpeed;
-    [HideInInspector]
-    public float currentRecovery;
-    [HideInInspector]
-    public float currentMagnet;
+    float currentHealth;
+    float currentSpeed;
+    float currentMight;
+    float currentProjectileSpeed;
+    float currentRecovery;
+    float currentMagnet;
+    public GameObject currentCharacter;
+
+    #region Plaer current stats
+
+    public float CurrentHealth
+    {
+        get { return currentHealth; }
+        set
+        {
+            if (currentHealth != value)
+            {
+                currentHealth = value;
+                //update realtime stats
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentHealthDisplay.text = "Health :" + currentHealth;
+                }
+            }
+        }
+    }
+    public float CurrentSpeed
+    {
+        get { return currentSpeed; }
+        set
+        {
+            if (currentSpeed != value)
+            {
+                currentSpeed = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentSpeedDisplay.text = "Speed :" + currentSpeed;
+                }
+            }
+        }
+    }
+
+    public float CurrentMight
+    {
+        get { return currentMight; }
+        set
+        {
+            if (currentMight != value)
+            {
+                currentMight = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentMightDisplay.text = "Might :" + currentMight;
+                }
+            }
+        }
+    }
+
+    public float CurrentProjectileSpeed
+    {
+        get { return currentProjectileSpeed; }
+        set
+        {
+            if (currentProjectileSpeed != value)
+            {
+                currentProjectileSpeed = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentProjectileDisplay.text = "Projectile Speed :" + currentProjectileSpeed;
+                }
+            }
+        }
+    }
+
+    public float CurrentRecovery
+    {
+        get { return currentRecovery; }
+        set
+        {
+            if (currentRecovery != value)
+            {
+                currentRecovery = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentRecoverDisplay.text = "Recover :" + currentRecovery;
+                }
+            }
+        }
+    }
+
+    public float CurrentMagnet
+    {
+        get { return currentMagnet; }
+        set
+        {
+            if (currentMagnet != value)
+            {
+                currentMagnet = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.currentMagnetDisplay.text = "Magnet :" + currentMagnet;
+                }
+            }
+        }
+    }
+    #endregion
+
+    public Image healthBar;
+    //inventory manager
+    InventoryManager inventory;
+    int skillIndex;
+    int itemIndex;
+    UIManager ui;
 
     //spawn StartingWeapon
     public List<GameObject> spawnWeapons;
@@ -26,9 +131,17 @@ public class PlayerStats : MonoBehaviour
     [Header("Level/Experience")]
     public int level = 1;
     public int experience = 0;
-    public int baseCap = 100; // Initial experience cap for level 1
-    public float experienceCapMultiplier = 1.5f; // Growth multiplier for experience
-    public float levelReach; // Factor that increases with level
+    public int expierienCap; // Initial experience cap for level 1
+
+    [System.Serializable]
+    public class LevelRange
+    {
+        public int startLevel;
+        public int endLevel;
+        public int experienceCap;
+    }
+
+    public List<LevelRange> levelRanges;
 
     //I-frame
     [Header("I-frame")]
@@ -40,20 +153,41 @@ public class PlayerStats : MonoBehaviour
     void Awake()
     {
         //Get charater choosing in menu
-        playerData = CharacterSelecter.GetCharacter();
-        CharacterSelecter.instance.DestroySingleTon();
+        if (playerData == null)
+        {
+            playerData = CharacterSelecter.GetCharacter();
+        }
 
-        currentHealth = playerData.MaxHealth;
-        currentSpeed = playerData.MoveSpeed;
-        currentMight = playerData.Might;
-        currentProjectileSpeed = playerData.ProjectileSpeed;
-        currentRecovery = playerData.Recovery;
-        currentMagnet = playerData.Magnet;
+        inventory = FindObjectOfType<InventoryManager>();
+        ui = FindObjectOfType<UIManager>();
+
+        CurrentHealth = playerData.MaxHealth;
+        CurrentSpeed = playerData.MoveSpeed;
+        CurrentMight = playerData.Might;
+        CurrentProjectileSpeed = playerData.ProjectileSpeed;
+        CurrentRecovery = playerData.Recovery;
+        CurrentMagnet = playerData.Magnet;
+        currentCharacter = playerData.Character;
 
         //spawn StartingWeapon
         SpawnWeapon(playerData.StartingWeapon);
 
-        levelReach = GetExperienceCap();
+        //experience
+        expierienCap = levelRanges[0].experienceCap;
+    }
+
+    void Start()
+    {
+        //set stats
+        GameManager.Instance.currentHealthDisplay.text = "Health :" + currentHealth;
+        GameManager.Instance.currentSpeedDisplay.text = "Speed :" + currentSpeed;
+        GameManager.Instance.currentRecoverDisplay.text = "Recover :" + currentRecovery;
+        GameManager.Instance.currentMightDisplay.text = "Might :" + currentMight;
+        GameManager.Instance.currentProjectileDisplay.text = "Projectile Speed :" + currentProjectileSpeed;
+        GameManager.Instance.currentMagnetDisplay.text = "Magnet :" + currentMagnet;
+
+        //AssignChoosenCharacter
+        GameManager.Instance.AssignChoosenCharacter(playerData);
     }
 
     // Update is called once per frame
@@ -70,30 +204,43 @@ public class PlayerStats : MonoBehaviour
                 isInvincible = false;
             }
         }
+        //recover health by time
         recover();
-        levelReach = GetExperienceCap();
+
+        UpdateHealthBar();
+        //AssignChoseSkillUI
+        GameManager.Instance.ChooseSkillAssign(inventory.skillUI);
+        GameManager.Instance.ChooseItemAssign(inventory.itemUI);
+
+
     }
+
 
     public void IncreaseExperience(int amount)
     {
         experience += amount;
         LevelUpChecker();
-        Debug.Log("Experience: " + experience + " / " + levelReach);
     }
 
     public void LevelUpChecker()
     {
-        while (experience >= GetExperienceCap()) // Check for level up
+        while (experience >= expierienCap) // Check for level up
         {
-            experience -= GetExperienceCap(); // Deduct the current cap from experience
+            GameManager.Instance.StartLevelUp();
+            experience -= expierienCap;
             level++; // Level up
-        }
-    }
 
-    public int GetExperienceCap()
-    {
-        // Calculate XP cap using exponential growth
-        return (int)(baseCap * Mathf.Pow(experienceCapMultiplier, level - 1));
+            int experienceIncrease = 0;
+            foreach (var levelRange in levelRanges)
+            {
+                if (level >= levelRange.startLevel && level <= levelRange.endLevel)
+                {
+                    experienceIncrease = levelRange.experienceCap;
+                    break;
+                }
+            }
+            expierienCap += experienceIncrease;
+        }
     }
 
     public void TakeDamage(float damage)
@@ -102,48 +249,65 @@ public class PlayerStats : MonoBehaviour
         {
             invisibilityTimer = invisibilityDuration;
             isInvincible = true;
-            currentHealth -= damage;
-            if (currentHealth <= 0)
+            CurrentHealth -= damage;
+            if (CurrentHealth <= 0)
             {
                 Kill();
             }
         }
     }
 
+    void UpdateHealthBar()
+    {
+        healthBar.fillAmount = CurrentHealth / playerData.MaxHealth;
+    }
+
     void Kill()
     {
-        Debug.Log("Player dead");
+        if (!GameManager.Instance.isGameOver)
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 
     public void IncreaseHealth(int amount)
     {
-        if (currentHealth < playerData.MaxHealth)
+        if (CurrentHealth < playerData.MaxHealth)
         {
-            currentHealth += amount;
+            CurrentHealth += amount;
         }
         else
         {
-            currentHealth = playerData.MaxHealth;
+            CurrentHealth = playerData.MaxHealth;
         }
     }
 
     void recover()
     {
-        if (currentHealth < playerData.MaxHealth)
+        if (CurrentHealth < playerData.MaxHealth)
         {
-            currentHealth += currentRecovery * Time.deltaTime;
-        } 
+            CurrentHealth += CurrentRecovery * Time.deltaTime;
+        }
         else
         {
-            currentHealth = playerData.MaxHealth;
+            CurrentHealth = playerData.MaxHealth;
         }
     }
 
-    public void SpawnWeapon(GameObject weapon)
+    public void SpawnWeapon(GameObject Skill)
     {
         //startingWeapon
-        GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
+        GameObject spawnedWeapon = Instantiate(Skill, transform.position, Quaternion.identity);
         spawnedWeapon.transform.SetParent(transform); //set child of player
-        spawnWeapons.Add(spawnedWeapon); //add into list of weapons
+        inventory.AddSkill(skillIndex, spawnedWeapon.GetComponent<SkillController>());
+        skillIndex++;
+    }
+
+    public void SpawnItem(GameObject item)
+    {
+        GameObject spawnedItem = Instantiate(item, transform.position, Quaternion.identity);
+        spawnedItem.transform.SetParent(transform); //set child of player
+        inventory.AddItem(itemIndex, spawnedItem.GetComponent<PassiveItem>());
+        itemIndex++;
     }
 }
