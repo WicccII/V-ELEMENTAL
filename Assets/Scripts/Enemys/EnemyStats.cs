@@ -20,10 +20,6 @@ public class EnemyStats : MonoBehaviour
         currentDamage = enemyData.Damage;
 
         enemyMoveScript = GetComponents<MonoBehaviour>().FirstOrDefault(script => script.GetType().Name.EndsWith("EnemyMove"));
-        if (enemyMoveScript != null)
-        {
-            Debug.Log("Enemy Move Script found: " + enemyMoveScript.GetType().Name);
-        }
     }
 
     // Update is called once per frame
