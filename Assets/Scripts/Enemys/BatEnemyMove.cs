@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class BatMove : MonoBehaviour
+public class BatEnemyMove : MonoBehaviour
 {
     Transform player;
     public EnemyScriptableObject enemyData;
