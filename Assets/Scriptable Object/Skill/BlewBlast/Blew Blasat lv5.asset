@@ -20,7 +20,7 @@ MonoBehaviour:
   knockBackForce: 10
   level: 5
   nextLevelPrefab: {fileID: 0}
-  icon: {fileID: 21300000, guid: 99d4819091891334da6a9aebc2c348f5, type: 3}
+  icon: {fileID: 21300000, guid: de81c3530cca98f49a90151020c4176c, type: 3}
   name: Blew Blast lv5
   description: +50% size
   toRemove: 5

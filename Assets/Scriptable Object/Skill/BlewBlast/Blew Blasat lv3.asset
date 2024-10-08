@@ -19,8 +19,8 @@ MonoBehaviour:
   pierce: 0
   knockBackForce: 10
   level: 3
-  nextLevelPrefab: {fileID: 0}
-  icon: {fileID: 21300000, guid: 99d4819091891334da6a9aebc2c348f5, type: 3}
+  nextLevelPrefab: {fileID: 1923764901825674359, guid: f1d74f2680f3bad43b031a294b6214cc, type: 3}
+  icon: {fileID: 21300000, guid: de81c3530cca98f49a90151020c4176c, type: 3}
   name: Blew Blast lv3
   description: size +50%
   toRemove: 5
