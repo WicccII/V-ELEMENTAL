@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 5622324251493229649}
   - component: {fileID: 8025699951195602523}
   - component: {fileID: 1337101985181649607}
+  - component: {fileID: -245025170810143019}
   - component: {fileID: 4820294479076996436}
   - component: {fileID: -4397658917028558974}
   - component: {fileID: 7537340429924882725}
-  - component: {fileID: -245025170810143019}
   - component: {fileID: 8247565551022996374}
   - component: {fileID: 245892071114034737}
   m_Layer: 0
@@ -112,6 +112,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-245025170810143019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5921802439822152710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baef299b3a108ea4dbd3c1d3f168a223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
 --- !u!114 &4820294479076996436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,19 +197,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   batMove: {fileID: 0}
   enemyData: {fileID: 11400000, guid: b91ea39dee4d5dc4199120f7d531f1d0, type: 2}
-  currentHealth: 0
---- !u!114 &-245025170810143019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5921802439822152710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baef299b3a108ea4dbd3c1d3f168a223, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   currentHealth: 0
 --- !u!114 &8247565551022996374
 MonoBehaviour:

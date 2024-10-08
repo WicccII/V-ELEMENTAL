@@ -63,8 +63,8 @@ public class TracerSkillBehaviour : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
-            enemyStats.GetComponent<Rigidbody2D>().AddForce(direction * currentKnockBackForce, ForceMode2D.Impulse);
             enemyStats.TakeDamage(GetCurrentDamage());
+            enemyStats.GetComponent<Rigidbody2D>().AddForce(direction * currentKnockBackForce, ForceMode2D.Impulse);
             ReducePierce();
         }
         else if (collision.CompareTag("Prop"))

@@ -10,7 +10,7 @@ public class MineSkillBehaviour : SkillController
     float currentPierce;
     float currentKnockBackForce;
     Animator animator;
-    new public Collider2D collider2D;
+    new Collider2D collider2D;
     void Awake()
     {
         currentDamage = skillData.Damage;
@@ -60,14 +60,14 @@ public class MineSkillBehaviour : SkillController
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
+        AvailableAttack();
         //if collision with enemy then take damage
         if (collision.CompareTag("Enemy"))
         {
             EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
-            Transform playerTranform = FindObjectOfType<PlayerStats>().transform;
-            Vector3 direction = (enemyStats.transform.position - playerTranform.position).normalized;
-            enemyStats.GetComponent<Rigidbody2D>().AddForce(direction * currentKnockBackForce, ForceMode2D.Impulse);
+            Vector3 direction = (enemyStats.transform.position - transform.position).normalized;
             enemyStats.TakeDamage(GetCurrentDamage());
+            enemyStats.GetComponent<Rigidbody2D>().AddForce(direction * currentKnockBackForce, ForceMode2D.Impulse);
         }
         else if (collision.CompareTag("Prop"))
         {

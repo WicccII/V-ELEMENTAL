@@ -449,6 +449,9 @@ MonoBehaviour:
   - skillUpgradeIndex: 4
     initialSkill: {fileID: 1870668074958209724, guid: 920f5ce24ec445b449699579d1c5cc3a, type: 3}
     skillData: {fileID: 11400000, guid: 513a76ff6625288448b0e94fd4607648, type: 2}
+  - skillUpgradeIndex: 5
+    initialSkill: {fileID: 1923764901825674359, guid: 53578cba97c568d41b8ed88ff47353b3, type: 3}
+    skillData: {fileID: 11400000, guid: 09d84e1373f26b349a7694b4b14ecad3, type: 2}
   itemUpgradesOption:
   - itemUpgradeIndex: 0
     initialItem: {fileID: 7315688359018095375, guid: 502c5e3f9d99caa428193233ee705c30, type: 3}
