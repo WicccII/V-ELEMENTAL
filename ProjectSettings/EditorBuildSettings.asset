@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Desert-Map.unity
     guid: 317e56e322b183845b4ea47c2dd17fcb
+  - enabled: 1
+    path: Assets/Scenes/Ocean-Map.unity
+    guid: 43bdd9a46b127b94da4a16736a10f891
   m_configObjects: {}
