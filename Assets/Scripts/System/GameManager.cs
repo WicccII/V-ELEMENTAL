@@ -82,7 +82,6 @@ public class GameManager : MonoBehaviour
                 {
                     isGameOver = true;
                     Time.timeScale = 0f;
-                    Debug.Log("GameOver");
                     DisplayResult();
                 }
                 break;

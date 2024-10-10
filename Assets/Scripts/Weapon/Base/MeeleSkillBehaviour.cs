@@ -67,8 +67,8 @@ public class MeeleSkillBehaviour : SkillController
             EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
             Transform playerTranform = FindObjectOfType<PlayerStats>().transform;
             Vector3 direction = (enemyStats.transform.position - playerTranform.position).normalized;
-            enemyStats.GetComponent<Rigidbody2D>().AddForce(direction * currentKnockBackForce, ForceMode2D.Impulse);
             enemyStats.TakeDamage(GetCurrentDamage());
+            enemyStats.GetComponent<Rigidbody2D>().AddForce(direction * currentKnockBackForce, ForceMode2D.Impulse);
         }
         else if (collision.CompareTag("Prop"))
         {

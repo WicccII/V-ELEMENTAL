@@ -237,7 +237,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1227904911
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: -8437349422274009348, guid: 9f7eee493b104d64d8e9eb083d1a39f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -449,6 +449,18 @@ MonoBehaviour:
   - skillUpgradeIndex: 2
     initialSkill: {fileID: 3835084421753013299, guid: 54b53ccfbacb99741863d220725c4d43, type: 3}
     skillData: {fileID: 11400000, guid: 19cbe84e5533d674995dc357c982f4c7, type: 2}
+  - skillUpgradeIndex: 3
+    initialSkill: {fileID: 7230837270417449261, guid: 6ef41f4b5e647e944ac9522db2871bc0, type: 3}
+    skillData: {fileID: 11400000, guid: 454d9d4ebc3edc148930cfa21a67b253, type: 2}
+  - skillUpgradeIndex: 4
+    initialSkill: {fileID: 1870668074958209724, guid: 920f5ce24ec445b449699579d1c5cc3a, type: 3}
+    skillData: {fileID: 11400000, guid: 513a76ff6625288448b0e94fd4607648, type: 2}
+  - skillUpgradeIndex: 5
+    initialSkill: {fileID: 1923764901825674359, guid: 53578cba97c568d41b8ed88ff47353b3, type: 3}
+    skillData: {fileID: 11400000, guid: 09d84e1373f26b349a7694b4b14ecad3, type: 2}
+  - skillUpgradeIndex: 6
+    initialSkill: {fileID: 7469344213648155676, guid: d8b830df1359c254eb5112fc14e83afd, type: 3}
+    skillData: {fileID: 11400000, guid: 897cce0626cf59d4eb3b7564f5a1ce09, type: 2}
   itemUpgradesOption:
   - itemUpgradeIndex: 0
     initialItem: {fileID: 7315688359018095375, guid: 502c5e3f9d99caa428193233ee705c30, type: 3}

@@ -115,7 +115,7 @@ public class UIManager : MonoBehaviour
         }
 
         //check if skill slot is full or not and item is full or not
-        if (skillIndex > inventory.skillSlots.Count)
+        if (skillIndex >= inventory.skillSlots.Count)
         {
             RemoveUpgradeOptionWhenSkillFull(availableSkillUpgradesOption, skillIndex);
             Debug.Log("skill slot full");

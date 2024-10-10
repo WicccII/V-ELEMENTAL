@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -111,7 +110,7 @@ public class InventoryManager : MonoBehaviour
                     {
                         foreach (var evolution in skillEvolutions)
                         {
-                            if (skill.skillData.Level >= evolution.baseSkillDate.Level && item.passiveItemData.Level >= evolution.catalystPassiveItemData.Level)
+                            if (skill.skillData.Level >= evolution.baseSkillDate.Level && item.passiveItemData.Level >= evolution.catalystPassiveItemData.Level && skill.skillData == evolution.baseSkillDate)
                             {
                                 possibleSkillEvolution.Add(evolution);
                             }
@@ -154,7 +153,7 @@ public class InventoryManager : MonoBehaviour
                     skillUpgradesOption[evolutionSkillController.skillData.ToRemove].skillData = evolutionSkillController.skillData;
                     
                     Debug.Log("Evolution Done");
-
+                    
                     return;
                 }
             }

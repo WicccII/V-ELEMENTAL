@@ -15,7 +15,7 @@ MonoBehaviour:
   prefab: {fileID: 560080661008462675, guid: d26a71c2d7e952342ada93084eb2dc80, type: 3}
   multiplier: 5
   level: 4
-  nextLevelPrefab: {fileID: 560080661008462675, guid: 0bac1b53b6bfcd34ca38fc5f810be29b, type: 3}
+  nextLevelPrefab: {fileID: 560080661008462675, guid: b63b703ed435d0a4c8788f327baaea63, type: 3}
   icon: {fileID: 21300000, guid: 3e33ac804e180ba4bbfd893deed71e0e, type: 3}
   name: Spinatch lv4
   description: 'New Item: Spinatch +10% mig'
