@@ -57,7 +57,6 @@ public class OrcAnimation : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player entered the attack range");
             isInAttackRange = true;
         }
     }
@@ -66,7 +65,6 @@ public class OrcAnimation : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player exited the attack range");
             isInAttackRange = false;
         }
     }
