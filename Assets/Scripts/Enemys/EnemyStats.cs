@@ -58,7 +58,8 @@ public class EnemyStats : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
+
+            PlayerStats playerStats = FindObjectOfType<PlayerStats>();
             playerStats.TakeDamage(currentDamage);
         }
     }
