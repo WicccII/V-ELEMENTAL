@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Watter Cannon lv1
   m_EditorClassIdentifier: 
   prefab: {fileID: 7469344213648155676, guid: d8b830df1359c254eb5112fc14e83afd, type: 3}
-  damage: 10
+  damage: 8
   speed: 0
   cooldownDuration: 2
   pierce: 0
   knockBackForce: 10
   level: 1
-  nextLevelPrefab: {fileID: 0}
+  nextLevelPrefab: {fileID: 7469344213648155676, guid: bd1a8221e94dddc4cb1873d8af290cc6, type: 3}
   icon: {fileID: -331206655, guid: ecb77c5f91c5a714fa2bbae1d62d4eb8, type: 3}
   name: Watter Cannon
   description: New skill
