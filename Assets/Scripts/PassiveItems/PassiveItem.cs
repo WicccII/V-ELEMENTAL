@@ -11,6 +11,10 @@ public class PassiveItem : MonoBehaviour
     {
         //Aplly the boost to the player
     }
+    protected virtual void ApplyAddition()
+    {
+        //Aplly the boost to the player
+    }
     // Start is called before the first frame update
     protected virtual void Start()
     {

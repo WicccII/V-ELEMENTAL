@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wing lv1
   m_EditorClassIdentifier: 
   prefab: {fileID: 7315688359018095375, guid: 502c5e3f9d99caa428193233ee705c30, type: 3}
-  multiplier: 5
+  multiplier: 10
   level: 1
   nextLevelPrefab: {fileID: 7315688359018095375, guid: 559816a8157816f469c0f20a19fbaa97, type: 3}
   icon: {fileID: -136233334, guid: ecb77c5f91c5a714fa2bbae1d62d4eb8, type: 3}

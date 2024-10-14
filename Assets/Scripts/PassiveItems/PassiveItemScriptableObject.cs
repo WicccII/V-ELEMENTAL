@@ -12,6 +12,9 @@ public class PassiveItemScriptableObject : ScriptableObject
     float multiplier;
     public float Multiplier { get => multiplier; set => multiplier = value; }
     [SerializeField]
+    float addition;
+    public float Addition { get => addition; set => addition = value; }
+    [SerializeField]
     int level; //Modifile in editor only 
     public int Level { get => level; private set => level = value; }
     [SerializeField]
