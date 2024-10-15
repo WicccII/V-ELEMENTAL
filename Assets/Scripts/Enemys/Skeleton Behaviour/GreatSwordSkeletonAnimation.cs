@@ -58,13 +58,17 @@ public class GreatSwordSkeletonAnimation : MonoBehaviour
     public void FinishAttack()
     {
         animator.SetBool("Attacked", false);
-        hitBox.enabled = false;
         moveScript.enabled = true;
     }
 
     public void enableHitBox()
     {
         hitBox.enabled = true;
+    }
+
+    public void disableHitBox()
+    {
+        hitBox.enabled = false;
     }
 
     void OnTriggerEnter2D(Collider2D collider)

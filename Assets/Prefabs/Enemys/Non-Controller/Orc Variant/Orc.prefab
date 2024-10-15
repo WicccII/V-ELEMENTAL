@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  enemyData: {fileID: 11400000, guid: bc6c08c1a8eeb674a9f8e75b80c3f558, type: 2}
   attackCooldown: 2
 --- !u!114 &3958997620069272060
 MonoBehaviour:

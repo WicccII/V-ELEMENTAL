@@ -9,15 +9,18 @@ public class OrcAnimation : MonoBehaviour
     public float currentHealth;
     float takedameHealth;
     private bool isInAttackRange = false;
+    public EnemyScriptableObject enemyData;
 
     // Cooldown settings
     public float attackCooldown = 1f; // 1 second cooldown
     private float cooldownTimer = 0f;
+    float currentDamage;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         orcStats = GetComponent<EnemyStats>();
+        currentDamage = enemyData.Damage;
         currentHealth = orcStats.currentHealth;
         takedameHealth = orcStats.currentHealth;
     }
@@ -66,6 +69,16 @@ public class OrcAnimation : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInAttackRange = false;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+            PlayerStats playerStats = FindObjectOfType<PlayerStats>();
+            playerStats.TakeDamage(currentDamage);
         }
     }
 }
