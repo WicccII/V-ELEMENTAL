@@ -22,34 +22,34 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 1413333001, guid: b234a72cf2123fe46a73715f5f4463ca, type: 3}
-    - time: 0.083333336
+    - time: 0.055555556
       value: {fileID: -167216931, guid: b234a72cf2123fe46a73715f5f4463ca, type: 3}
-    - time: 0.16666667
+    - time: 0.11111111
       value: {fileID: 345895793, guid: b234a72cf2123fe46a73715f5f4463ca, type: 3}
-    - time: 0.25
+    - time: 0.16666667
       value: {fileID: -1241373200, guid: b234a72cf2123fe46a73715f5f4463ca, type: 3}
-    - time: 0.33333334
+    - time: 0.22222222
       value: {fileID: -2138769741, guid: b234a72cf2123fe46a73715f5f4463ca, type: 3}
-    - time: 0.41666666
+    - time: 0.2777778
       value: {fileID: -1732941168, guid: b234a72cf2123fe46a73715f5f4463ca, type: 3}
-    - time: 0.5
+    - time: 0.33333334
       value: {fileID: 1489646910, guid: b234a72cf2123fe46a73715f5f4463ca, type: 3}
-    - time: 0.5833333
+    - time: 0.3888889
       value: {fileID: 1861252344, guid: b234a72cf2123fe46a73715f5f4463ca, type: 3}
-    - time: 0.6666667
+    - time: 0.44444445
       value: {fileID: -1885031643, guid: b234a72cf2123fe46a73715f5f4463ca, type: 3}
-    - time: 0.75
+    - time: 0.5
       value: {fileID: -2044670243, guid: b234a72cf2123fe46a73715f5f4463ca, type: 3}
-    - time: 0.8333333
+    - time: 0.5555556
       value: {fileID: -964288520, guid: b234a72cf2123fe46a73715f5f4463ca, type: 3}
-    - time: 0.9166667
+    - time: 0.6111111
       value: {fileID: 500860840, guid: b234a72cf2123fe46a73715f5f4463ca, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 12
+  m_SampleRate: 18
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -83,7 +83,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 0.6666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -103,21 +103,21 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.41666666
+  - time: 0.2777778
     functionName: enableHitBox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.75
+  - time: 0.5
     functionName: disableHitBox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.9166667
+  - time: 0.6111111
     functionName: FinishAttack
     data: 
     objectReferenceParameter: {fileID: 0}

@@ -2358,6 +2358,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4724184206928016354}
     m_Modifications:
     - target: {fileID: 1836435309195497024, guid: 9ad72108d2f314544868200c47e02d95, type: 3}
+      propertyPath: timeLimit
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836435309195497024, guid: 9ad72108d2f314544868200c47e02d95, type: 3}
       propertyPath: pauseScene
       value: 
       objectReference: {fileID: 3534317029283226838}

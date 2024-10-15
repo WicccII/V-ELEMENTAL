@@ -42,6 +42,7 @@ public class GreatSwordSkeletonAnimation : MonoBehaviour
         {
             animator.SetBool("Hurt", true);
             FinishAttack();
+            disableHitBox();
             currentHealth = enemyStats.currentHealth;
         }
         else

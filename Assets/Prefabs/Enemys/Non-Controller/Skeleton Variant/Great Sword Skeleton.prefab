@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -8547895210173428996}
   - component: {fileID: 2559148485799559774}
   - component: {fileID: -5531616152959709884}
+  - component: {fileID: -6849147549920277957}
   m_Layer: 0
   m_Name: Great Sword Skeleton
   m_TagString: Enemy
@@ -253,6 +254,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 61505e54a078e7a4f807a41f767c2c5d, type: 2}
   currentHealth: 0
+--- !u!114 &-6849147549920277957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514686212260676615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3b893cc377ab942b84fb3f0bacc016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: 1
+    itemPrefab: {fileID: 776726664563090495, guid: 24e096eef7237c94b97a2bb53cb93549, type: 3}
+    dropRate: 65
+  - name: 2
+    itemPrefab: {fileID: 5426536025269092473, guid: 68fb535cc10b5474abd24e0582fb296b, type: 3}
+    dropRate: 20
+  - name: 3
+    itemPrefab: {fileID: 836137733070366849, guid: b003dc6ae7a32b74baf4bf559d96f56f, type: 3}
+    dropRate: 4
 --- !u!1 &8776381440879613588
 GameObject:
   m_ObjectHideFlags: 0

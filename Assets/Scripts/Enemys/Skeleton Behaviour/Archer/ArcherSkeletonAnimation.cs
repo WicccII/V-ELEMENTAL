@@ -1,39 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class LancerAnimtion : MonoBehaviour
+public class ArcherSkeletonAnimation : MonoBehaviour
 {
     Animator animator;
     EnemyStats enemyStats;
+    ArcherSkeletonEnemeMove moveScript;
     float currentHealth;
+    [Header("Modifile")]
+    public GameObject projectile;
     public EnemyScriptableObject enemyData;
-    float currentDamage;
-    public float attackRange;
     public float coolDown;
-    float timer = 0;
+    float timer;
+    public float distance;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
         enemyStats = GetComponent<EnemyStats>();
         currentHealth = enemyStats.currentHealth;
-        currentDamage = enemyData.Damage;
-        timer = coolDown;
+        moveScript = GetComponent<ArcherSkeletonEnemeMove>();
+        AvailableAttack();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
         TakeDamage();
+        StopMove();
+        timer += Time.deltaTime;
         if (timer > coolDown)
         {
-            StartCoroutine(AvailableAttack());
+            AvailableAttack();
         }
     }
 
-    /// </summary>
     void TakeDamage()
     {
         if (enemyStats.currentHealth < currentHealth)
@@ -47,42 +50,48 @@ public class LancerAnimtion : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    void StopMove()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (IsPrepare())
         {
-
-            PlayerStats playerStats = FindObjectOfType<PlayerStats>();
-            playerStats.TakeDamage(currentDamage);
+            moveScript.enabled = false;
+            animator.SetBool("Move", false);
         }
+        else
+        {
+            moveScript.enabled = true;
+            animator.SetBool("Move", true);
+
+        }
+    }
+
+    void AvailableAttack()
+    {
+        animator.SetBool("Attacked", true);
+    }
+
+    void FinishAttack()
+    {
+        animator.SetBool("Attacked", false);
+        timer = 0;
     }
 
     private bool IsPrepare()
     {
         PlayerStats playerStats = FindObjectOfType<PlayerStats>();
         float gapBetween = (transform.position - playerStats.transform.position).magnitude;
-        if (gapBetween <= attackRange)
+        if (gapBetween <= distance)
         {
+            Debug.Log("Prepare" + gapBetween);
             return true;
         }
         return false;
     }
 
-    private IEnumerator AvailableAttack()
+    public void SpawnProjectile()
     {
-        if (IsPrepare())
-        {
-            PlayerStats playerStats = FindObjectOfType<PlayerStats>();
-            animator.SetBool("Attacked", true);
-            enemyStats.GetComponent<Rigidbody2D>().AddForce((playerStats.transform.position - transform.position).normalized, ForceMode2D.Impulse);
-            yield return new WaitForSeconds(1.5f);
-            FinishAttack();
-        }
+        Instantiate(projectile, transform.position, Quaternion.identity);
+
     }
 
-    private void FinishAttack()
-    {
-        animator.SetBool("Attacked", false);
-        timer = 0;
-    }
 }

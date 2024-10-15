@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Blue Bat
   m_EditorClassIdentifier: 
   prefab: {fileID: 5921802439822152710, guid: 5a5dd4c1958be9a419ad70febe5a7abe, type: 3}
-  health: 15
-  damage: 50
+  health: 20
+  damage: 25
   speed: 3
