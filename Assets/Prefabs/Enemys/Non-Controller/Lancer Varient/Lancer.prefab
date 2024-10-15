@@ -186,9 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 04be60d02c7a7cc4bbf55aaa81102a33, type: 2}
-  hitBox: {fileID: 0}
-  attackable: {fileID: 0}
-  coolDown: 0
+  coolDown: 4
 --- !u!114 &-7583281712795478006
 MonoBehaviour:
   m_ObjectHideFlags: 0
