@@ -88,6 +88,10 @@ MonoBehaviour:
       enemyCount: 10
       spawnCount: 0
       enemyPrefab: {fileID: 5921802439822152710, guid: 5a5dd4c1958be9a419ad70febe5a7abe, type: 3}
+    - enemyName: Skeleton GS
+      enemyCount: 2
+      spawnCount: 0
+      enemyPrefab: {fileID: 514686212260676615, guid: eb6f5f0f27efda14c82b5deaf345351c, type: 3}
     waveQuota: 0
     spawnInterval: 8
     spawnCount: 0

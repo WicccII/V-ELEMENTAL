@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a82bb38c65a4d94e9f124e4a4d8f65d, type: 3}
   m_Name: Holy Water lv4
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8053623963393421054, guid: accddad57310cb24c86de97740a8146c, type: 3}
-  multiplier: 50
-  level: 1
-  nextLevelPrefab: {fileID: 0}
+  prefab: {fileID: 8053623963393421054, guid: cb68b3238f753494a9a750a85265f694, type: 3}
+  multiplier: 10
+  addition: 0
+  level: 4
+  nextLevelPrefab: {fileID: 8053623963393421054, guid: 5384c0f7aaa4c2c4e9c9598447fd1a9b, type: 3}
   icon: {fileID: -236948327, guid: 24f9b093ca6c5ba43abed115e76d10e7, type: 3}
-  name: Holy Water
-  description: 'New item: +50% recover'
+  name: Holy Water lv4
+  description: +10% recover

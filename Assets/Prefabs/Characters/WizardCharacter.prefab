@@ -465,6 +465,9 @@ MonoBehaviour:
   - itemUpgradeIndex: 2
     initialItem: {fileID: 8053623963393421054, guid: accddad57310cb24c86de97740a8146c, type: 3}
     itemData: {fileID: 11400000, guid: 64c381624eaeb59498dce3a2ecc43355, type: 2}
+  - itemUpgradeIndex: 3
+    initialItem: {fileID: 3062698083658723986, guid: aae945516e6cdc14895949e9d2ffa838, type: 3}
+    itemData: {fileID: 11400000, guid: 354c68cd4bb5488408f774bbea6a5fc8, type: 2}
   skillEvolutions:
   - {fileID: 11400000, guid: 250c04de0aa337f4f8260a3c66418bb9, type: 2}
 --- !u!1 &5800363289518350258
