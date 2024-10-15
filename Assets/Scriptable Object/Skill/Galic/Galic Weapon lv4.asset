@@ -17,7 +17,7 @@ MonoBehaviour:
   speed: 0
   cooldownDuration: 4.5
   pierce: 0
-  knockBackForce: 2
+  knockBackForce: 1
   level: 4
   nextLevelPrefab: {fileID: 8160271337813456415, guid: 4834f9d7744e7fa4286fd026213db3b2, type: 3}
   icon: {fileID: 2114599115, guid: ecb77c5f91c5a714fa2bbae1d62d4eb8, type: 3}

@@ -15,7 +15,7 @@ public class PlayerStats : MonoBehaviour
     float currentMagnet;
     public GameObject currentCharacter;
 
-    #region Plaer current stats
+    #region Player current stats
 
     public float CurrentHealth
     {
