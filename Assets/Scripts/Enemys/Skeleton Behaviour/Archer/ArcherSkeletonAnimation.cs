@@ -82,7 +82,6 @@ public class ArcherSkeletonAnimation : MonoBehaviour
         float gapBetween = (transform.position - playerStats.transform.position).magnitude;
         if (gapBetween <= distance)
         {
-            Debug.Log("Prepare" + gapBetween);
             return true;
         }
         return false;
