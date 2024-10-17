@@ -208,8 +208,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.8, y: 0}
-  m_Size: {x: 1, y: 1.5}
+  m_Offset: {x: 0.7, y: 0}
+  m_Size: {x: 1.5, y: 1.7}
   m_Direction: 0
 --- !u!114 &-8547895210173428996
 MonoBehaviour:
@@ -286,7 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8223136124777411124}
   - component: {fileID: 8307386708209397554}
-  - component: {fileID: 5607368675756366581}
+  - component: {fileID: 5043018830532764733}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -322,8 +322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 0
---- !u!58 &5607368675756366581
-CircleCollider2D:
+--- !u!70 &5043018830532764733
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -354,6 +354,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.7, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.4
+  m_Offset: {x: 0.5, y: 0}
+  m_Size: {x: 0.9, y: 1.6300015}
+  m_Direction: 0

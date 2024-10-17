@@ -235,6 +235,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Book_6
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 162
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 11, y: 11, z: 11, w: 11}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f4632e2fbe433489ef786c725e97c5
+      internalID: 828248501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -252,6 +273,7 @@ TextureImporter:
       Book_3: -1951724549
       Book_4: 1398727006
       Book_5: 2125959481
+      Book_6: 828248501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

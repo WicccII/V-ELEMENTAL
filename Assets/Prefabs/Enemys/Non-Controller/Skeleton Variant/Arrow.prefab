@@ -181,5 +181,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemydata: {fileID: 11400000, guid: 83e1e713ff668da4ba5d991d31385d95, type: 2}
-  speed: 2
+  speed: 8
   destroyAfter: 8
