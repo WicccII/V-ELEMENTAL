@@ -304,7 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 4373339012406568357}
   SFXSource: {fileID: 9202057722992344235}
-  background: {fileID: 8300000, guid: f97797f0c95b6db448ab5e44f3223015, type: 3}
+  background: {fileID: 8300000, guid: e049459efbc517449869c094d28202fe, type: 3}
   death: {fileID: 8300000, guid: ddb82fc10cfe9e149ae0dfb4a3e21502, type: 3}
   spearAttack: {fileID: 8300000, guid: d549fa35378d2164caf27e669ec1f1cc, type: 3}
   spearMaxAttack: {fileID: 8300000, guid: 4d26bf3a86be7d941a159e31fd9d3770, type: 3}
@@ -313,7 +313,7 @@ MonoBehaviour:
   crossAttack: {fileID: 8300000, guid: 3367b034a65d3da448fde6a107645da1, type: 3}
   blazingAttack: {fileID: 8300000, guid: 415a05c583c298f41a46f62300651305, type: 3}
   waterCanonAttack: {fileID: 8300000, guid: 57af5244aed06704ba43e3465d625255, type: 3}
-  blewBlastCountdown: {fileID: 8300000, guid: 6d0c6842c6d98c746bc3d45cbd5d4235, type: 3}
+  blewBlastCountdown: {fileID: 8300000, guid: ea49dc788602c174cab2cc6b2d7e192e, type: 3}
   playerAttacked: {fileID: 0}
   getItem: {fileID: 0}
   getSkill: {fileID: 0}
