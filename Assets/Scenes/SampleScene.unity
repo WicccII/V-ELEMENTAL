@@ -1070,30 +1070,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4373339012406568357, guid: 600a519b7fc162449ace4ad1251e3e56, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -1496603328841921694, guid: 9ae51480781b75f479fa190b51ab7a60, type: 2}
     - target: {fileID: 6168328184974348989, guid: 600a519b7fc162449ace4ad1251e3e56, type: 3}
       propertyPath: m_Name
       value: Audio Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 8426661704715372789, guid: 600a519b7fc162449ace4ad1251e3e56, type: 3}
-      propertyPath: death
-      value: 
-      objectReference: {fileID: 8300000, guid: ddb82fc10cfe9e149ae0dfb4a3e21502, type: 3}
-    - target: {fileID: 8426661704715372789, guid: 600a519b7fc162449ace4ad1251e3e56, type: 3}
-      propertyPath: levelUp
-      value: 
-      objectReference: {fileID: 8300000, guid: 8e821c71d0ae22849a4a4fa625f1ca00, type: 3}
-    - target: {fileID: 8426661704715372789, guid: 600a519b7fc162449ace4ad1251e3e56, type: 3}
-      propertyPath: batVoice
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9202057722992344235, guid: 600a519b7fc162449ace4ad1251e3e56, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -3387736669248430295, guid: 9ae51480781b75f479fa190b51ab7a60, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

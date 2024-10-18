@@ -109,6 +109,7 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        audioManager.PauseBackgroundMusic();
         if (currentState != GameState.Pause)
         {
             previousState = currentState;
@@ -120,6 +121,7 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        audioManager.PlayBackgroundMusic();
         if (currentState == GameState.Pause)
         {
             ChangeState(previousState);
@@ -152,6 +154,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        audioManager.PlaySFX(audioManager.death);
+        audioManager.PauseBackgroundMusic();
         timeSurvivedDisplay.text = timeDisplay.text;
         ChangeState(GameState.GameOver);
     }
