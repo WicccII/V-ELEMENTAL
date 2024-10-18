@@ -172,13 +172,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.459
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 79
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -306,7 +306,9 @@ MonoBehaviour:
   SFXSource: {fileID: 9202057722992344235}
   background: {fileID: 8300000, guid: f97797f0c95b6db448ab5e44f3223015, type: 3}
   death: {fileID: 0}
-  attack: {fileID: 0}
-  attacked: {fileID: 0}
+  spearAttack: {fileID: 0}
+  bladeAttack: {fileID: 0}
+  crossAttack: {fileID: 0}
+  playerAttacked: {fileID: 0}
   getItem: {fileID: 0}
   getSkill: {fileID: 0}

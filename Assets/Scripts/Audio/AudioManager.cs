@@ -11,16 +11,23 @@ public class AudioManager : MonoBehaviour
     [Header("----------Audio Clip----------")]
     public AudioClip background;
     public AudioClip death;
-    public AudioClip attack;
-    public AudioClip attacked;
+
+    public AudioClip spearAttack;
+    public AudioClip bladeAttack;
+    public AudioClip crossAttack;
+
+    public AudioClip playerAttacked;
     public AudioClip getItem;
     public AudioClip getSkill;
 
-    private void Start()
+    public void Start()
     {
         musicSource.clip = background;
         musicSource.Play();
     }
-
+    public void PlaySFX(AudioClip clip)
+    {
+        SFXSource.PlayOneShot(clip);
+    }    
 
 }
