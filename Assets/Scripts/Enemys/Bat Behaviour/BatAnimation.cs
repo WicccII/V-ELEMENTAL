@@ -18,6 +18,7 @@ public class BatAnimation : MonoBehaviour
         currentHealth = enemyStats.currentHealth;
         takedameHealth = enemyStats.currentHealth;
         currentDamage = enemyData.Damage;
+      
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class BatAnimation : MonoBehaviour
         {
             animator.SetBool("Takedamage", false);
         }
+ 
     }
 
     private void OnCollisionStay2D(Collision2D collision)
