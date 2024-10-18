@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/Menu-Choosen-Character.unity
     guid: a8d10cf4c980ba544ae3c3c29daffeeb
   - enabled: 1
     path: Assets/Scenes/Choose-Map.unity
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ocean-Map.unity
     guid: 43bdd9a46b127b94da4a16736a10f891
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 9c7ffe9b18c64c040842504dc44d9ffd
   m_configObjects: {}

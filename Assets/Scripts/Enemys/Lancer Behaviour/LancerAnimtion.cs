@@ -9,6 +9,7 @@ public class LancerAnimtion : MonoBehaviour
     float currentHealth;
     public EnemyScriptableObject enemyData;
     float currentDamage;
+    public float attackRange;
     public float coolDown;
     float timer = 0;
     // Start is called before the first frame update
@@ -56,11 +57,11 @@ public class LancerAnimtion : MonoBehaviour
         }
     }
 
-    private bool isPrepare()
+    private bool IsPrepare()
     {
         PlayerStats playerStats = FindObjectOfType<PlayerStats>();
         float gapBetween = (transform.position - playerStats.transform.position).magnitude;
-        if (gapBetween <= 10)
+        if (gapBetween <= attackRange)
         {
             return true;
         }
@@ -69,7 +70,7 @@ public class LancerAnimtion : MonoBehaviour
 
     private IEnumerator AvailableAttack()
     {
-        if (isPrepare())
+        if (IsPrepare())
         {
             PlayerStats playerStats = FindObjectOfType<PlayerStats>();
             animator.SetBool("Attacked", true);

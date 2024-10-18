@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1018737354994946659}
   - component: {fileID: -7583281712795478006}
   - component: {fileID: -672941537615755424}
+  - component: {fileID: -5974997396891357021}
   m_Layer: 0
   m_Name: Lancer
   m_TagString: Enemy
@@ -186,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 04be60d02c7a7cc4bbf55aaa81102a33, type: 2}
+  attackRange: 9.5
   coolDown: 4
 --- !u!114 &-7583281712795478006
 MonoBehaviour:
@@ -214,3 +216,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 04be60d02c7a7cc4bbf55aaa81102a33, type: 2}
   currentHealth: 0
+--- !u!114 &-5974997396891357021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5267528958413595990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3b893cc377ab942b84fb3f0bacc016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: GemTier1
+    itemPrefab: {fileID: 776726664563090495, guid: 24e096eef7237c94b97a2bb53cb93549, type: 3}
+    dropRate: 70
+  - name: GemTier2
+    itemPrefab: {fileID: 5426536025269092473, guid: 68fb535cc10b5474abd24e0582fb296b, type: 3}
+    dropRate: 20
+  - name: GemTier3
+    itemPrefab: {fileID: 836137733070366849, guid: b003dc6ae7a32b74baf4bf559d96f56f, type: 3}
+    dropRate: 2

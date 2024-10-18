@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8594336488574695539}
   - component: {fileID: 3958997620069272060}
   - component: {fileID: 3213642036509592938}
+  - component: {fileID: -8399344805807770500}
   m_Layer: 0
   m_Name: Orc
   m_TagString: Enemy
@@ -194,7 +195,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 4
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -251,3 +252,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: bc6c08c1a8eeb674a9f8e75b80c3f558, type: 2}
   currentHealth: 0
+--- !u!114 &-8399344805807770500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540533466917659077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3b893cc377ab942b84fb3f0bacc016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: Gem1
+    itemPrefab: {fileID: 776726664563090495, guid: 24e096eef7237c94b97a2bb53cb93549, type: 3}
+    dropRate: 80
+  - name: Gem2
+    itemPrefab: {fileID: 5426536025269092473, guid: 68fb535cc10b5474abd24e0582fb296b, type: 3}
+    dropRate: 15
+  - name: Gem3
+    itemPrefab: {fileID: 836137733070366849, guid: b003dc6ae7a32b74baf4bf559d96f56f, type: 3}
+    dropRate: 1

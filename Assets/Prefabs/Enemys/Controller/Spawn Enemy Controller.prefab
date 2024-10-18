@@ -92,6 +92,10 @@ MonoBehaviour:
       enemyCount: 2
       spawnCount: 0
       enemyPrefab: {fileID: 514686212260676615, guid: eb6f5f0f27efda14c82b5deaf345351c, type: 3}
+    - enemyName: Bat
+      enemyCount: 20
+      spawnCount: 0
+      enemyPrefab: {fileID: 5921802439822152710, guid: 4f4d95b838eac6343b97a47dcbf3d076, type: 3}
     waveQuota: 0
     spawnInterval: 8
     spawnCount: 0
@@ -120,7 +124,19 @@ MonoBehaviour:
     - enemyName: Bat
       enemyCount: 10
       spawnCount: 0
-      enemyPrefab: {fileID: 5921802439822152710, guid: 4f4d95b838eac6343b97a47dcbf3d076, type: 3}
+      enemyPrefab: {fileID: 540533466917659077, guid: 2db4659961daae74895a5d8b44819ad9, type: 3}
+    - enemyName: Batblue
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 5921802439822152710, guid: 5a5dd4c1958be9a419ad70febe5a7abe, type: 3}
+    - enemyName: Batblue
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 5921802439822152710, guid: 5a5dd4c1958be9a419ad70febe5a7abe, type: 3}
+    - enemyName: Batblue
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 5921802439822152710, guid: 5a5dd4c1958be9a419ad70febe5a7abe, type: 3}
     waveQuota: 0
     spawnInterval: 8
     spawnCount: 0
@@ -138,6 +154,131 @@ MonoBehaviour:
       enemyCount: 1
       spawnCount: 0
       enemyPrefab: {fileID: 5921802439822152710, guid: ac0fb6a4b83ada2489efc4e9ad4f7865, type: 3}
+    waveQuota: 0
+    spawnInterval: 10
+    spawnCount: 0
+  - waveName: wave 5 (lv up)
+    enemyGroup:
+    - enemyName: Orc
+      enemyCount: 15
+      spawnCount: 0
+      enemyPrefab: {fileID: 540533466917659077, guid: 2db4659961daae74895a5d8b44819ad9, type: 3}
+    - enemyName: Orc
+      enemyCount: 15
+      spawnCount: 0
+      enemyPrefab: {fileID: 540533466917659077, guid: 2db4659961daae74895a5d8b44819ad9, type: 3}
+    - enemyName: Orc
+      enemyCount: 15
+      spawnCount: 0
+      enemyPrefab: {fileID: 540533466917659077, guid: 2db4659961daae74895a5d8b44819ad9, type: 3}
+    - enemyName: Orc
+      enemyCount: 15
+      spawnCount: 0
+      enemyPrefab: {fileID: 540533466917659077, guid: 2db4659961daae74895a5d8b44819ad9, type: 3}
+    - enemyName: archer
+      enemyCount: 8
+      spawnCount: 0
+      enemyPrefab: {fileID: 4255046843586658932, guid: 1c4b9e024345bd04cba0332087cbcbce, type: 3}
+    waveQuota: 0
+    spawnInterval: 10
+    spawnCount: 0
+  - waveName: wave 6
+    enemyGroup:
+    - enemyName: Orc
+      enemyCount: 15
+      spawnCount: 0
+      enemyPrefab: {fileID: 540533466917659077, guid: 2db4659961daae74895a5d8b44819ad9, type: 3}
+    - enemyName: Orc
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 540533466917659077, guid: 2db4659961daae74895a5d8b44819ad9, type: 3}
+    - enemyName: Orc
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 540533466917659077, guid: 2db4659961daae74895a5d8b44819ad9, type: 3}
+    - enemyName: Orc
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 540533466917659077, guid: 2db4659961daae74895a5d8b44819ad9, type: 3}
+    - enemyName: archer
+      enemyCount: 15
+      spawnCount: 0
+      enemyPrefab: {fileID: 4255046843586658932, guid: 1c4b9e024345bd04cba0332087cbcbce, type: 3}
+    - enemyName: GreatSword
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 514686212260676615, guid: eb6f5f0f27efda14c82b5deaf345351c, type: 3}
+    waveQuota: 0
+    spawnInterval: 10
+    spawnCount: 0
+  - waveName: wave 7
+    enemyGroup:
+    - enemyName: Orc
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 540533466917659077, guid: 2db4659961daae74895a5d8b44819ad9, type: 3}
+    - enemyName: Orc
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 540533466917659077, guid: 2db4659961daae74895a5d8b44819ad9, type: 3}
+    - enemyName: archer
+      enemyCount: 15
+      spawnCount: 0
+      enemyPrefab: {fileID: 4255046843586658932, guid: 1c4b9e024345bd04cba0332087cbcbce, type: 3}
+    - enemyName: GreatSword
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 514686212260676615, guid: eb6f5f0f27efda14c82b5deaf345351c, type: 3}
+    - enemyName: GreatSword
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 514686212260676615, guid: eb6f5f0f27efda14c82b5deaf345351c, type: 3}
+    - enemyName: lancer
+      enemyCount: 1
+      spawnCount: 0
+      enemyPrefab: {fileID: 5267528958413595990, guid: 94e0198550e530a44bd5e9380a010339, type: 3}
+    waveQuota: 0
+    spawnInterval: 10
+    spawnCount: 0
+  - waveName: wave 8
+    enemyGroup:
+    - enemyName: archer
+      enemyCount: 15
+      spawnCount: 0
+      enemyPrefab: {fileID: 4255046843586658932, guid: 1c4b9e024345bd04cba0332087cbcbce, type: 3}
+    - enemyName: GreatSword
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 514686212260676615, guid: eb6f5f0f27efda14c82b5deaf345351c, type: 3}
+    - enemyName: GreatSword
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 514686212260676615, guid: eb6f5f0f27efda14c82b5deaf345351c, type: 3}
+    - enemyName: GreatSword
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 514686212260676615, guid: eb6f5f0f27efda14c82b5deaf345351c, type: 3}
+    - enemyName: GreatSword
+      enemyCount: 10
+      spawnCount: 0
+      enemyPrefab: {fileID: 514686212260676615, guid: eb6f5f0f27efda14c82b5deaf345351c, type: 3}
+    waveQuota: 0
+    spawnInterval: 10
+    spawnCount: 0
+  - waveName: wave 9
+    enemyGroup:
+    - enemyName: lancer
+      enemyCount: 1
+      spawnCount: 0
+      enemyPrefab: {fileID: 5267528958413595990, guid: 94e0198550e530a44bd5e9380a010339, type: 3}
+    - enemyName: lancer
+      enemyCount: 1
+      spawnCount: 0
+      enemyPrefab: {fileID: 5267528958413595990, guid: 94e0198550e530a44bd5e9380a010339, type: 3}
+    - enemyName: NightmareLancer
+      enemyCount: 1
+      spawnCount: 0
+      enemyPrefab: {fileID: 5267528958413595990, guid: cfe1d45b8ab5cea47ac939d542e42e14, type: 3}
     waveQuota: 0
     spawnInterval: 10
     spawnCount: 0
