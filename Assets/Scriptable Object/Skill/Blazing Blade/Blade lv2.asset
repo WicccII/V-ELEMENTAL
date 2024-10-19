@@ -17,10 +17,10 @@ MonoBehaviour:
   speed: 0
   cooldownDuration: 1.25
   pierce: 0
-  knockBackForce: 20
+  knockBackForce: 10
   level: 2
   nextLevelPrefab: {fileID: 3835084421753013299, guid: 743b232398fbeea4bb3ff23ff71ad4bd, type: 3}
-  icon: {fileID: 1477143120, guid: ecb77c5f91c5a714fa2bbae1d62d4eb8, type: 3}
+  icon: {fileID: 21300000, guid: 760d099b74e86254b95979c22d7bc529, type: 3}
   name: Blazing Blade lv2
   description: +1 damg; cd - 0.25s
   toRemove: 2

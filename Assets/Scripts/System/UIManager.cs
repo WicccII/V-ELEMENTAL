@@ -118,7 +118,6 @@ public class UIManager : MonoBehaviour
         if (skillIndex >= inventory.skillSlots.Count)
         {
             RemoveUpgradeOptionWhenSkillFull(availableSkillUpgradesOption, skillIndex);
-            Debug.Log("skill slot full");
         }
         if (itemIndex > inventory.itemSlots.Count)
         {

@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  enemyData: {fileID: 11400000, guid: b91ea39dee4d5dc4199120f7d531f1d0, type: 2}
 --- !u!114 &4820294479076996436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c234c1f61b6c5424aac0293506184385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batMove: {fileID: 0}
   enemyData: {fileID: 11400000, guid: b91ea39dee4d5dc4199120f7d531f1d0, type: 2}
   currentHealth: 0
 --- !u!114 &8247565551022996374

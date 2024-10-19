@@ -5,9 +5,14 @@ using UnityEngine;
 public class PassiveItem : MonoBehaviour
 {
     protected PlayerStats player;
+    protected PlayerScriptableObject playerData;
     public PassiveItemScriptableObject passiveItemData;
 
     protected virtual void ApplyMultiplier()
+    {
+        //Aplly the boost to the player
+    }
+    protected virtual void ApplyAddition()
     {
         //Aplly the boost to the player
     }
@@ -17,6 +22,8 @@ public class PassiveItem : MonoBehaviour
         player = FindObjectOfType<PlayerStats>();
 
         ApplyMultiplier();
+
+        ApplyAddition();
     }
 
     // Update is called once per frame

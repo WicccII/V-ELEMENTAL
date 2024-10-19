@@ -8,7 +8,7 @@ public class SkillController : MonoBehaviour
 {
     [Header("Skill stats")]
     public SkillScriptableObject skillData;
-    float currentCooldown;
+    protected float currentCooldown;
 
     protected PlayerMove playerMove;
     

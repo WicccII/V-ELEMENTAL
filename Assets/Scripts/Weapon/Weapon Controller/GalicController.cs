@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GalicController : SkillController
@@ -8,6 +9,7 @@ public class GalicController : SkillController
     protected override void Start()
     {
         base.Start();
+        currentCooldown = 0f;
     }
 
     // Update is called once per frame

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Orc
   m_EditorClassIdentifier: 
   prefab: {fileID: 540533466917659077, guid: 2db4659961daae74895a5d8b44819ad9, type: 3}
-  health: 15
+  health: 100
   damage: 35
-  speed: 1
+  speed: 3

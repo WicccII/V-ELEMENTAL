@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a82bb38c65a4d94e9f124e4a4d8f65d, type: 3}
+  m_Name: Holy Water lv2
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8053623963393421054, guid: ca5d30b9c7683154f9bd96d568999ce7, type: 3}
+  multiplier: 10
+  addition: 0
+  level: 2
+  nextLevelPrefab: {fileID: 8053623963393421054, guid: 2aa3aeca5e348d54da9f175bfa6eb0b6, type: 3}
+  icon: {fileID: -236948327, guid: 24f9b093ca6c5ba43abed115e76d10e7, type: 3}
+  name: Holy Water lv2
+  description: +10% recover

@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class BladeLv3Controllr : MeeleSkillBehaviour
 {
+    AudioManager audioManager;
     private bool isFinish = false;
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-    }
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();    }
 
     // Update is called once per frame
     protected override void Update()
@@ -20,6 +21,7 @@ public class BladeLv3Controllr : MeeleSkillBehaviour
 
     protected override void Attack()
     {
+            audioManager.PlaySFX(audioManager.bladeMaxAttack);
             base.Attack();
 
             GetComponent<MeeleSkillBehaviour>().DirectionChecker(playerMove.lastMoveDirection);

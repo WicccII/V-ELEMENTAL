@@ -7,6 +7,8 @@ public class BatAnimation : MonoBehaviour
     Animator animator;
     EnemyStats enemyStats;
     public float currentHealth;
+    public EnemyScriptableObject enemyData;
+    float currentDamage;
     float takedameHealth;
     // Start is called before the first frame update
     void Start()
@@ -15,6 +17,8 @@ public class BatAnimation : MonoBehaviour
         enemyStats = GetComponent<EnemyStats>();
         currentHealth = enemyStats.currentHealth;
         takedameHealth = enemyStats.currentHealth;
+        currentDamage = enemyData.Damage;
+      
     }
 
     // Update is called once per frame
@@ -27,6 +31,17 @@ public class BatAnimation : MonoBehaviour
         }else
         {
             animator.SetBool("Takedamage", false);
+        }
+ 
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+            PlayerStats playerStats = FindObjectOfType<PlayerStats>();
+            playerStats.TakeDamage(currentDamage);
         }
     }
 }

@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class SpearLv3Controller : SkillController
 {
+    AudioManager audioManager;
     // Start is called before the first frame update
-// Overloaded Attack method with a delay in the loop
+    protected override void Start()
+    {
+        base.Start();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+
+    // Overloaded Attack method with a delay in the loop
     protected override void Attack()
     {
+        audioManager.PlaySFX(audioManager.spearMaxAttack);
         base.Attack();
         StartCoroutine(SpawnSpearsWithDelay());
     }

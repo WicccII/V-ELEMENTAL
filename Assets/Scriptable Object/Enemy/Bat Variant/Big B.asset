@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Big B
   m_EditorClassIdentifier: 
   prefab: {fileID: 5921802439822152710, guid: ac0fb6a4b83ada2489efc4e9ad4f7865, type: 3}
-  health: 200
-  damage: 90
-  speed: 2
+  health: 250
+  damage: 65
+  speed: 3.5

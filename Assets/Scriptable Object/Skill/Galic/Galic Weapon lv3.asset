@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e729c6819aec04d93a158b098fe7f8, type: 3}
+  m_Name: Galic Weapon lv3
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 250484655935574522, guid: a285f84f587843d46a13deeb1787e3b6, type: 3}
+  damage: 8
+  speed: 0
+  cooldownDuration: 4.5
+  pierce: 0
+  knockBackForce: 0.2
+  level: 3
+  nextLevelPrefab: {fileID: 8160271337813456415, guid: be34d7058733a934aad7c34c6d179c83, type: 3}
+  icon: {fileID: 2114599115, guid: ecb77c5f91c5a714fa2bbae1d62d4eb8, type: 3}
+  name: Galic lv3
+  description: +2 damge -0.5s cooldown
+  toRemove: 0

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class BlazingBlashController : SkillController
 {
+    AudioManager audioManager;
     // Start is called before the first frame update
     protected override void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         base.Start();
     }
 
@@ -17,6 +19,7 @@ public class BlazingBlashController : SkillController
     }
     protected override void Attack()
     {
+        audioManager.PlaySFX(audioManager.blazingAttack);
         float randomNumber;
         for (int i = 0; i < skillData.Level; i++)
         {

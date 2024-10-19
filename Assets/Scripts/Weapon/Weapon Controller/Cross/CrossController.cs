@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class CrossController : MeeleSkillBehaviour
 {
+    AudioManager audioManager;
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -18,6 +20,7 @@ public class CrossController : MeeleSkillBehaviour
 
     protected override void Attack()
     {
+        audioManager.PlaySFX(audioManager.crossAttack);
         base.Attack();
         GetComponent<MeeleSkillBehaviour>().DirectionChecker(playerMove.lastMoveDirection);
     }

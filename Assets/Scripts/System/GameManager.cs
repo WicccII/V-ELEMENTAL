@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    AudioManager audioManager;
     // Define state of game 
     public enum GameState
     {
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         //warning check if orther singlton
         if (Instance == null)
         {
@@ -107,6 +109,7 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        audioManager.PauseBackgroundMusic();
         if (currentState != GameState.Pause)
         {
             previousState = currentState;
@@ -118,6 +121,7 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        audioManager.PlayBackgroundMusic();
         if (currentState == GameState.Pause)
         {
             ChangeState(previousState);
@@ -150,6 +154,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        audioManager.PlaySFX(audioManager.death);
+        audioManager.PauseBackgroundMusic();
         timeSurvivedDisplay.text = timeDisplay.text;
         ChangeState(GameState.GameOver);
     }
@@ -226,6 +232,8 @@ public class GameManager : MonoBehaviour
 
     public void StartLevelUp()
     {
+        audioManager.PauseBackgroundMusic();
+        audioManager.PlaySFX(audioManager.levelUp);
         ChangeState(GameState.LevelUp);
         // Find the UIManager in the scene
         UIManager uiManager = FindObjectOfType<UIManager>();
@@ -246,5 +254,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         levelUpScene.SetActive(false);
         ChangeState(GameState.Ganeplay);
+        audioManager.PlayBackgroundMusic();
     }
 }
