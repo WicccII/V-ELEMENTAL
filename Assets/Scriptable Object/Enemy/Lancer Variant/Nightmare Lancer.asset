@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Nightmare Lancer
   m_EditorClassIdentifier: 
   prefab: {fileID: 5267528958413595990, guid: 94e0198550e530a44bd5e9380a010339, type: 3}
-  health: 100
-  damage: 55
+  health: 800
+  damage: 60
   speed: 3
