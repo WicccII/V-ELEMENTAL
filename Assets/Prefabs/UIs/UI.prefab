@@ -2359,7 +2359,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1836435309195497024, guid: 9ad72108d2f314544868200c47e02d95, type: 3}
       propertyPath: timeLimit
-      value: 720
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 1836435309195497024, guid: 9ad72108d2f314544868200c47e02d95, type: 3}
       propertyPath: pauseScene
