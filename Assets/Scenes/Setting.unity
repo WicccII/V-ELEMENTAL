@@ -183,10 +183,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 276868746}
   m_HandleRect: {fileID: 1335744283}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 20
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -401,10 +401,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 648530922}
   m_HandleRect: {fileID: 1693855232}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 20
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2534,10 +2534,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1340980340}
   m_HandleRect: {fileID: 2074649846}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 20
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2644,7 +2644,7 @@ PrefabInstance:
     - target: {fileID: 8426661704715372789, guid: 600a519b7fc162449ace4ad1251e3e56, type: 3}
       propertyPath: background
       value: 
-      objectReference: {fileID: 8300000, guid: 2d6739cf5d810584ca27c41d60ad8094, type: 3}
+      objectReference: {fileID: 8300000, guid: e9199057cc7804247b5500fba28b8715, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
