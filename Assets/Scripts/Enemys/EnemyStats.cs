@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using Image = UnityEngine.UI.Image;
 
 public class EnemyStats : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class EnemyStats : MonoBehaviour
     public float currentHealth;
     float currentSpeed;
     float currentDamage;
+    public Image healthBar;
     MonoBehaviour enemyMoveScript;
 
     // Start is called before the first frame update
@@ -20,6 +23,11 @@ public class EnemyStats : MonoBehaviour
         currentDamage = enemyData.Damage;
 
         enemyMoveScript = GetComponents<MonoBehaviour>().FirstOrDefault(script => script.GetType().Name.EndsWith("EnemyMove"));
+    }
+
+    void Update()
+    {
+        UpdateHealthBar();
     }
 
     // Update is called once per frame
@@ -52,5 +60,10 @@ public class EnemyStats : MonoBehaviour
     void kill()
     {
         Destroy(gameObject);
+    }
+
+    void UpdateHealthBar()
+    {
+        healthBar.fillAmount = currentHealth / enemyData.Health;
     }
 }
